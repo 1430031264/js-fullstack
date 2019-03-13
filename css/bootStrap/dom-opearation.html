@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="box">
+        <p id="title">title</p>
+    </div> -->
+    <script>
+        const divNode = document.createElement('div');
+        divNode.className='box';
+        const pNode = document.createElement('p');
+        pNode.id='title';
+        const textNode = document.createTextNode('title');
+        
+        divNode.appendChild(pNode); //把p标签 挂到 div里面
+        document.body.appendChild(divNode); //把div 挂到body里面
+        pNode.appendChild(textNode);// 把文本内容放入p标签里面
+    </script>
+</body>
+</html>
