@@ -17,6 +17,7 @@
     }
     .content{
       padding: 0 200px;
+      overflow: hidden;/*bfc块级格式化上下文  */
     }
     .text{
       text-align: center;
@@ -35,7 +36,7 @@
       height: 200px;
       background-color: pink;
       margin-left: -100%;
-      position: relative;
+      position: relative;/*相对自己自身的位置定位*/
       left: -200px;
     }
     .right{
@@ -49,6 +50,13 @@
     }
     /* .clearFix{
       float: left;
+    } */
+    /* .clearFix::after{
+      content:"";
+      clear:both;
+      display: block;
+      height: 0;如果伪类中刚好有内容，就加上这两行，这样就不用重新写一份
+      visibility: hidden;
     } */
   </style>
 </head>
