@@ -1,0 +1,47 @@
+html {
+  font-size: 12px;/*未来启用rem */
+  font-family: -apple-system,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Arial,sans-serif;
+  text-rendering: optimizeLegibility;/*文本抗锯齿*/
+  -webkit-tap-highlight-color: rgba(0,0,0,0);/*去重影*/
+  color: #333;
+  background-color: #f4f5f5;
+}
+img {
+  width: auto;
+  height: auto;
+  /* 图片在有的浏览器里会默认加边框 */
+  border-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;/*鼠标为指针*/
+  color: #909090;
+}
+
+.body{
+  margin: 0;
+  font-size: 12px;
+  line-height: normal;
+}
+.container{
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 200px;
+  background-color: green;
+  /* 从PC端到移动端 屏宽在变 适配时考虑的宽度
+  max-width 在PC时生效，960px 左右留白，pc上OK ，移动设备时< 600 max-width 失效 平铺整个屏幕 
+  高度scroll */
+  max-width: 960px;/*拓展响应式布局*/
+}
+
+#juejin {
+  overflow-x: hidden;/*水平方向超出隐藏*/
+}
+/* 切面从上到下从左到右 */
+.main-header-box{
+  height: 5rem;
+  background-color: red;
+  position: relative;
+}
