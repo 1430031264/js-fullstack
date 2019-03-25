@@ -51,12 +51,19 @@
     flex: 1;
     
   }
+  .feed-content .photos .aside .aside-pic{
+    position: relative;
+  }
   .feed-content .photos .aside .more-pic{
     font-size: 20px;
     color:red;
     text-align: center;
-    position: relative; 
-    
+    position: absolute;
+    float:left;
+    margin-bottom: 25%;
+    /* margin-top: 50% */
+    margin-left: 20px;
+    z-index: 80;
   }
   /*******feed-item end*******/
   </style>
@@ -83,7 +90,7 @@
                 <div style="padding-top:100%"></div>
               </div>
             <div class="more-pic">
-              141+
+                 141+
               <!-- <span class="count">141+</span> -->
             </div>
           </div>

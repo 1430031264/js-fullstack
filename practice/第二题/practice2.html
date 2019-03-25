@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>第二题</title>
+  <style>
+  *{margin: 0;padding: 0;}
+  .mao{
+    width: 400px;
+    height: 700px;
+    background-color: rgb(167, 190, 185);
+    position: absolute;
+    /* top: 50%;
+    left: 50%; */
+    
+  }
+  .shenzi{
+    width: 117px;
+    height: 201px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background:url(./maoshenti.png);
+    z-index: 3;
+  }
+  .yan1{
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    right: 180px;
+    bottom: 267px;
+    background: url(./maoyan1.png);
+    z-index: 4;
+  }
+  .yan2{
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    right: 165px;
+    bottom: 260px;
+    background: url(./maoyan2.png);
+    z-index: 4;
+  }
+  .zuiba{
+    width: 4px;
+    height: 3px;
+    position: absolute;
+    right: 174px;
+    bottom: 256px;
+    background: url(./maozui.png);
+    z-index: 4;
+  }
+  .weiba{
+    width: 64px;
+    height: 194px;
+    position: absolute;
+    background: url(./maowei.png);
+    top: 66px;
+    left: 34%;
+    z-index: 2;
+    transform-origin: 40% 96%;
+    animation: ani_weiba 3s ease-in-out infinite;
+  }
+  @keyframes ani_weiba {
+    0% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(-10deg);
+    }
+  }
+  .zhuazi{
+    width: 34px;
+    height: 81px;
+    position: absolute;
+    left: 208px;
+    bottom: 188px;
+    background: url(./maozhua.png);
+    animation: ani_maozhua 3s ease-in-out infinite;
+  }
+  @keyframes ani_maozhua{
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-11deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="mao">
+    <div class="shenzi"></div>
+    <div class="yan1"></div>
+    <div class="yan2"></div>
+    <div class="zuiba"></div>
+    <div class="weiba"></div>
+    <div class="zhuazi"></div>
+    
+    
+  </div>
+</body>
+</html>

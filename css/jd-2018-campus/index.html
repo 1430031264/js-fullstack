@@ -25,17 +25,21 @@
         <div class="light"></div>
         <div class="dog"></div>
         <div class="text text-top">
-          the speed of life beginning
+          The speed of life beginning
         </div>
         <div class="text text-bottom">
           快才拥有可能，这是一家以速度见长的公司
         </div>
-        <div class="num"></div>
+        <div class="num">
+
+        </div>
       </div>
       <div class="swiper-slide p3">Slide 3</div>
       <div class="swiper-slide p8">
         <div class="logo-ran">燃</div>
-        <div class="text-slogon">更快到达你想要的未来</div>
+        <div class="text-slogon">
+          更快到达你想要的未来
+        </div>
         <div class="cube-cnt-2">
           <div class="cube-2">
             <span></span>
@@ -46,23 +50,26 @@
             <span></span>
           </div>
         </div>
-        <div class="text-title">京东2018校园招聘</div>
+        <div class="text-title">
+          京东2018校园招聘
+        </div>
         <div class="text-detail">
-          招聘人群：2018<br>
+          招聘人群：2018<br/>
           本科 硕士 博士
         </div>
       </div>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
-  <script src="./lib/odometer.min.js"></script>
+  <script src="./lib/odometer.min.js">
+  </script>
   <script>
     const p2Num = document.querySelector('.p2 .num');
     od = new Odometer({
       el: p2Num,
       value: 1.618,
       format: '(,ddd).ddd',
-      theme: 'default',
+      theme: 'default'
     });
     var mySwiper = new Swiper('.swiper-container', {
       direction: 'vertical', // 垂直切换选项
@@ -71,7 +78,6 @@
           if (this.activeIndex === 1) {
             p2Num.innerHTML = 0.004;
           }
-          alert(this.activeIndex);//切换结束时，告诉我现在是第几个slide
         },
       }
     })        

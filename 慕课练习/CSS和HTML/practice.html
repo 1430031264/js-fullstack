@@ -1,84 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>做练习的网页</title>
   <style type="text/css">
-    *{
+    * {
       margin: 0;
       padding: 0;
     }
+
     /* a:hover{
     color:rgb(20, 219, 203);
     font-size: 35px;
     } */
-    a:link {color:gray;}
-    .stress{
-        color:red;
+    a:link {
+      color: gray;
     }
-    .bigsize{
-        font-size:25px;
+
+    .stress {
+      color: red;
+      font-size: 20px;
+      font-weight: bold;
     }
-    #stressid{
-        color:red;
+
+    .bigsize {
+      font-size: 25px;
     }
-    #bigsizeid{
-        font-size:25px;
+
+    #stressid {
+      color: red;
     }
+
+    #bigsizeid {
+      font-size: 25px;
+    }
+
     /* #stress{
       font-size: 50px;
       color:blue;
     } */
-    .date>span{
+    .date>span {
       font-size: 20px;
-      color:blue;
+      color: blue;
       border: 1px solid #000;
     }
+
     /* .food li{
     border:1px solid red;
     }  */
-    .food{
-       display: flex;
+    .food {
+      display: flex;
     }
-    .food>li{
-    /* height: 5.5rem;
+
+    .food>li {
+      /* height: 5.5rem;
     width: 5.5rem;    */
-    border:1px solid red;
-    border-radius: 5px;
-    text-align: center;
-    flex: 1;
+      border: 1px solid red;
+      border-radius: 5px;
+      text-align: center;
+      flex: 1;
+    }
+    /*权值问题，代码从上往下读，下面的样式吧上面的给覆盖了*/
+    p {
+      color: red;
+    }
+
+    .first {
+      color: green;
+      font-size: 20px;
+      font-weight: bolder;
     }
   </style>
 </head>
+
 <body>
-    <span class="stress">胆小如鼠</span>
-    <span class="stress">勇气</span>
-    <!-- <span class="stress bigsize">三年级</span><br>
+  <span class="stress">胆小如鼠</span>
+  <span class="stress">勇气</span>
+  <!-- <span class="stress bigsize">三年级</span><br>
     <p>我今天是<span id="stress">四年级</span>明天是
     <span id="stress">五年级</span></p> -->
-    <span id="stressid bigsizeid">三年级</span> <br>
-    <a href="https://www.baidu.com/">3.20今天星期三，又来好好学习了</a>
-    
-    <p class="date">3.18今天星期一，明天星期二，<span>后天星期三</span>，大后天星期四</p><br>
+  <span id="stressid bigsizeid">三年级</span> <br>
+  <a href="https://www.baidu.com/">3.20今天星期三，又来好好学习了</a>
+  
+  <p class="date">3.18今天星期一，明天星期二，<span>后天星期三</span>，大后天星期四</p><br>
+  <p class="first">3.24星期天<span>星期六</span>星期五</p>
+  
+  <ul class="food">
+    <li>水果
+      <ul>
+        <li>香蕉</li>
+        <li>苹果</li>
+        <li>梨</li>
+      </ul>
+    </li>
+    <li>蔬菜
+      <ul>
+        <li>白菜</li>
+        <li>油菜</li>
+        <li>卷心菜</li>
+      </ul>
+    </li>
+  </ul>
 
-    <ul class="food">
-        <li>水果
-            <ul>
-              <li>香蕉</li>
-              <li>苹果</li>
-              <li>梨</li>
-            </ul>
-        </li>
-        <li>蔬菜
-          <ul>
-              <li>白菜</li>
-                <li>油菜</li>
-                <li>卷心菜</li>
-            </ul>
-        </li>
-    </ul>
-    
 </body>
-</html> 
+
+</html>

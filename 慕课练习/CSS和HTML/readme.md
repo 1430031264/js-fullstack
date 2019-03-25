@@ -28,3 +28,26 @@
 
 -    ,       分组选择器
   能同时给多个标签元素设置相同的样式，每个标签之间用，隔开
+
+## 权值
+/*权值问题，下面的样式权值高，吧上面的给覆盖了*/
+    p {
+      color: red;
+    }
+
+    .first {
+      color: green;
+    }
+    标签的权值为1，类选择符的权值为10，ID选择符的权值最高为100。
+    ！important可以修改样式的权值，使之样式权值处于最高权值，从而达到自己的效果，不会被其他样式覆盖
+
+#css基础
+    font-weight:blod; 黑体
+    font-style:italic;斜体
+    
+    text-decoration下划线  参数：
+        none : 　无装饰
+        blink : 　闪烁
+        underline : 　下划线
+        line-through : 　贯穿线
+        overline : 　上划线
