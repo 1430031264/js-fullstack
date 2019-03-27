@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>table</title>
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>table</title>
+  </head>
+
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <td>name</td>
+          <td>age</td>
+          <td>message</td>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <!-- <tr>
+            <td>韩梅梅</td>
+            <td>18</td>
+            <td>我房有车又有地</td>
+          </tr> -->
+      </tbody>
+    </table>
+    <script>
+      const tbody = document.getElementById('tbody');
+      const person = [
+        {
+        name: '韩梅梅',
+        age: '18',
+        message: '我房有车又有地'
+      }, 
+      {
+        name: '吴景云',
+        age: '21',
+        message: '景云兄弟是个大佬，有房有车又有地'
+      }]
+      // const str  = `<tr>
+      //     <td>${person.name}</td>
+      //     <td>${person.age}</td>
+      //     <td>${person.message}</td>
+      //   </tr>`
+      // tbody.innerHTML = str;
+      //   //join 数组拼接成了字符串
+      // const arr = ['ecut','ecit'];
+      const people = person.map(function (le) {
+          return `<tr>
+            <td>${le.name}</td>
+            <td>${le.age}</td>
+            <td>${le.message}</td>
+          </tr>`
+        }).join('');
+        tbody.innerHTML = people;
+    </script>
+  </body>
+
+  </html>
+</body>
+
+</html>
