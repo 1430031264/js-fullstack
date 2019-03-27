@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var f =function(){
+      console.log('function');
+      return 'value';
+    }
+    // f();
+    // 箭头函数
+    var arrow_f = ()=>{
+      console.log('arrow function');
+      return 'value';
+    }
+    // arrow_f('value');
+    var arrow_1 = v=>{
+      console.log(v);
+    } 
+    arrow_1('今天星期三');
+
+
+    //var arrow_2 = function(v)=>{
+    //   return v;
+    // } 这儿几行代码与下面的这一行代码作用是一样的
+    var arrow_2 = v=>v;
+
+    var arrow_3 = function(){
+      return{
+        name:'韩梅梅',
+        age:18
+      }
+    }
+    var arrow_4 = ()=>({name:'韩梅梅',age:18})/*返回一个对象需要一个小括号，因为直接花括号会被当成函数体处理，*/
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>this</title>
+</head>
+<body>
+  <script>
+    const lilei = {
+      msg:'我不是黄蓉，我不会武功，我不是靖哥哥，没有完美的爱情'
+    }
+    const hanmeimei ={
+      msg:'爱的魔力转圈圈,想你想到心花怒放黑夜白天，可算是我害怕这只是一瞬间'
+    }
+    function lileiFunc(){
+      // console.log(this.msg);
+      var arrow_lileiFunc = ()=>{
+        console.log(this.msg);
+      }
+      arrow_lileiFunc();
+    }
+    lileiFunc.call(lilei);
+    lileiFunc.call(hanmeimei);
+
+    // var arrow_lileiFunc =()=>{
+    //   console.log('1236546564',this);
+    //   console.log(this.msg);
+    // }
+
+    var arrow_func_prototype =()=>{
+      console.log(1111);
+    }
+  </script>
+</body>
+</html>
