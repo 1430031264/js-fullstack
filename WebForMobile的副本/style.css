@@ -1,0 +1,72 @@
+*{
+ margin: 0;
+ padding: 0;   
+}
+ html,body{
+     font-size: 20px;
+     width: 100%;
+     height: 100%;
+ }
+ .active{
+    border-color: blue !important;
+  }
+  .is_choose{
+    background-color: blue;
+  }
+ .pay-page{
+     background-color: #faf5fe;
+     width: 100%;
+     height: 100%;
+ }
+ .header{
+     padding: 0.75rem;
+     background-color: #fff;
+ }
+ .header-title{
+     font-size: 0.85rem;
+     margin-bottom: 0.75rem;
+ }
+.header-items{
+    /* 上右下左 */
+    margin-top: 0.75rem 0.75rem 1rem 0.75rem;
+}
+.item-price{
+    /* height: 5.5rem; */
+    /* width: 5.5rem;    */
+    border: 1px solid #999999;
+    border-radius: 5px;
+    text-align: center;
+}
+.item-price__month{
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bolder;  
+    color:#333333;
+    line-height: 1; 
+}
+.item-price__old{
+    font-size: 0.6rem;
+    color:#999999;
+    margin-top: 0.5rem;
+    line-height: 1;
+    text-decoration: line-through;
+}
+.item-price__new{
+    font-size: 0.8rem;
+    color:#48a6fd;
+    margin-top: 0.75rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+.header-items .item-price{
+    display: inline-block;
+}
+.flex{
+    display: flex;
+}
+.flex1{
+    flex: 1;
+}
+.mr{
+    margin: 0 0.4rem 0 0.4rem;
+}
