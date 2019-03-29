@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>arrow find</title>
+</head>
+<body>
+  <script>
+    // const ages =[
+    //   18,30,22,25,50,45,60
+    // ];
+    // 30
+    // const this_age= ages.find((age)=> age > 30);
+    // const this_age_filter =  ages.filter((age)=>age > 30);
+    // 1
+    // const this_age_index = ages.findIndex((age)=>age > 30);
+
+
+    // console.log(this_age,this_age_filter,this_age_index);
+    
+
+
+
+    //undefined [] -1
+    const ages =[
+    { name:'李磊',age:10},
+    { name:'李磊2',age:30},
+    { name:'李磊3',age:15},
+    { name:'李磊4',age:30}
+    ]
+    const this_age = ages.find((a) => a.age > 18); /*返回值*/
+   
+    const this_age_filter = ages.filter((a) => a.age > 18); /* 返回数组*/
+    
+    const this_age_index = ages.findIndex((a) => a.age > 18); /*返回索引*/
+
+    const this_age_every = ages.every((a)=>a.age > 18); /*只要一个不满足就是false*/
+
+    const thiss_age_some = ages.some(a => a.age > 18); /* 能找到其中是谁不满足，谁满足*/
+
+    // console.log(this_age,this_age_filter,  this_age_index)
+
+    console.log(this_age_every,thiss_age_some);
+  </script>
+</body>
+</html>

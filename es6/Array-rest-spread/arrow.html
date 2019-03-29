@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const arr = [18,19,30];
+    /*es5的写法
+    var a = arr[0],b=arr[1],c=arr[2];
+    */
+
+    //es6 的语法，解构--数组解构
+    // const [a,b,c] = arr;
+
+    const [a,[b],c] = [18,[19],30];
+
+    // 这两个实现的功能相同
+
+    // 若只想解构某一项
+    const [,,d] = [18,[20],30];
+    //若解构不存的对象
+    const [,,d,e] = [18,[20],30];
+  </script>
+</body>
+</html>

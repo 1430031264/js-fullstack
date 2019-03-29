@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>function-expand</title>
+</head>
+
+<body>
+  <script>
+    // es5 时候 赋默认值的两种常见的做法
+    // function Person (name){
+    //   // 默认值
+    //   //  if(!name){
+    //   //    name = 'default name';
+    //   //  }
+    //   this.name=name || '没有这个名字';
+    // }
+
+    /*这个是es6 的写法*/
+    function Person(name = '没有这个名字') {
+      this.name = name;
+    }
+
+
+    const p1 = new Person('张三');
+    /*返回{name:张三}*/
+
+    const p2 = new Person();
+
+    //rest 参数 形式 （...变量名）
+    //作用：获取函数多余参数
+    //搭配的变量是一个数组
+    //Rest parameter must be last formal parameter(我们只能将数组前面的单独变成一个数组，不能将中间的变成一个数组)
+    const arrow_sum = (a,...args) => {
+      console.log(a,args);
+    }
+    arrow_sum(1, 2, 3, 4);
+
+
+  </script>
+</body>
+
+</html>
