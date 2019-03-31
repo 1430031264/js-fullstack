@@ -59,7 +59,9 @@ img{
   z-index: 1000;
   display: none;
 }
-
+.layer1{
+  display: none;
+}
 .loadImg{
   position: absolute;
   top: 50%;
@@ -319,4 +321,64 @@ img{
 .layer1 .ft .btn.btnAnimate{
   -webkit-animation: btn 1s;
   animation: btn 1s;
+}
+
+/*淘汰赛赛程*/
+.layer2{
+  background-color: #f9ffe7;
+  position: relative;
+}
+.hd_bd{
+  border-width: 30px 15px 8px 15px;
+  border-style: solid;
+  position: relative;
+  text-align: center;
+  line-height: 30px;
+  z-index: 2;
+}
+.layer2 .hd_bd{
+  color: #435d50;
+  border-color: #fff #55b852 #55b852 #55b852;
+}
+.hd_bd .tit{
+  color: #435d50;
+  font-size: 18px;
+  position: absolute;
+  width: 100%;
+  top: -30px;
+  left: 0;
+}
+#js_tab_menu{
+  background-color: #55b852;
+  height: 30px;
+  border: 4px solid #faf848;
+  padding: 0 9px 0 14px;
+}
+#js_tab_menu li{
+  display: block;
+  float: left;
+  height: 30px;
+  text-align: center;
+  width: 25%;
+  position: relative;
+}
+#js_tab_menu li span{
+  position: absolute;
+  display: block;
+  height: 30px;
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 30px;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#js_tab_menu .on span{
+  background: url('http://mat1.gtimg.com/sports/worldcup2014/match/tab_on.png') no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  color: #117d0e;
+}
+#js_tab_content .one .bg{
+  height: 747px;
 }

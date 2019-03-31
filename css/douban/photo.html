@@ -54,16 +54,23 @@
   .feed-content .photos .aside .aside-pic{
     position: relative;
   }
-  .feed-content .photos .aside .more-pic{
-    font-size: 20px;
+  .feed-content .photos .aside .aside-pic .more-pic{
+    position: absolute;
+    height: 68px;
+    width: 68px;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+  }
+  .feed-content .photos .aside .aside-pic .more-pic .more-num{
+    font-size: 17px;
     color:red;
     text-align: center;
+    top: 50%;
     position: absolute;
-    float:left;
-    margin-bottom: 25%;
-    /* margin-top: 50% */
-    margin-left: 20px;
-    z-index: 80;
+    left: 25%;
+    top: 36%;
+    
   }
   /*******feed-item end*******/
   </style>
@@ -90,7 +97,9 @@
                 <div style="padding-top:100%"></div>
               </div>
             <div class="more-pic">
-                 141+
+              <div class="more-num">
+                141+
+              </div>     
               <!-- <span class="count">141+</span> -->
             </div>
           </div>
