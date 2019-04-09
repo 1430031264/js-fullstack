@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jquery源码解析-旅梦源码课</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <img src="https://pic.36krcnd.com/201904/09061934/9axl9yt10w5w6kq6!heading" alt="" onload="imgLoaded();">
+  <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+  <!-- 性能优化，将js放下面，提高用户体验 -->
+  <script>
+    // 当我们的HTNL CSS 很大的时候
+
+    // 现在我们这个页面有3个http请求
+    // 1 自己本身  2 img 图片  3  script
+    function imgLoaded(){
+      console.log('图片加载完成');
+    }
+
+    window.onload = function(){
+      console.log('页面加载完成');
+    }/*不能等到图片完全加载完才显示图片 所以需要onload*/
+    // document.addEventListener('DOMContentLoaded',function(){
+    //   console.log('DOM ready');/*从第一行到最后一行的时候，就ready了，DOM + html 是ready的前提  */
+    //   //js 开始的地方
+    // })
+
+    // jqery的爱  API 简约，而且更好的兼容性  DOMContentLoaded事件在IE中有兼容性的问题
+
+    // $ 是一个方法，
+    function jQueryEle(ele){
+      this.ele = ele;
+    }
+    jQueryEle.prototype.html = function(str){
+      this.ele.innerHTML = str;
+    }
+    function $(selector){
+      if(typeof selector === 'function'){
+      document.addEventListener('DOMContentLoaded',selector)/*回调函数*/
+      }
+      else if (typeof selector === 'string'){
+        /*
+       1.$函数  .html方法
+        放弃typeos写法
+        html方法来自原型对象
+       2.$函数运行有返回值，是一个对象*/
+        const ele = document.querySelector(selector);
+        if(ele){
+          // jQueryEle对象
+          return new jQueryEle(ele);
+        }
+        
+        // $('#root').html()
+      // querySelector(selector).innerHtml
+      };
+    }
+    $(function(){
+      console.log('DOM Ready');
+      $('#root').html('<p>我要去越南，我要去缅甸</p>')
+      
+    })
+  </script>
+</body>
+</html>
