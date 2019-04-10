@@ -7,3 +7,4 @@ game 对象，背景，精灵，动画，Phaser给了友好的API，逻辑。
 preload 预加载
 create 创建游戏场景
 update 更新游戏场景
+
