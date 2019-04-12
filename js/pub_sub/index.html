@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>订阅发布者模式</title>
+  <style>
+  html,body{
+    height: 100%;
+  }
+  </style>
+</head>
+<body>
+  <script>
+    // listener  收听者es callback，发布者doucument.body
+    // 注册事件，鼠标点击的时候，就做事件回调函数的执行
+    // document.body.addEventListener('click',function(){
+    //   alert('111');
+    // },false);
+    // document.body.addEventListener('click',function(){
+    //   alert('222');
+    // },false);
+    // document.body.addEventListener('click',function(){
+    //   alert('333');
+    // },false);
+
+    let yq = {
+      name:'张三',yz:99}; //发布者
+    yq.peopleList = [];//存储订阅者的地方
+    yq.listen = function(fn){
+      this.peopleList.push(fn);
+    }
+    yq.trigger = function(){
+      // this.peopleList.forEach(element =>{
+      //   element();
+      // }) 这个方法和下面的for 一样
+
+      for (var i = 0,fn; fn = this.peopleList[i++];){
+        fn.call(this,'今晚有空，可以去看复联4');
+      }
+    }
+
+    yq.listen(function(msg){
+      console.log(`${this.name} ${msg} 你打篮球好蔡`)
+    })
+    yq.listen(function(msg){
+      console.log(` ${this.name} nmsl ${msg}`)
+    })
+    yq.listen(function(msg){
+      console.log(`${this.name}你可以说我菜，但是不能说我蔡`)
+    })
+    console.log(yq.peopleList.length);
+    setTimeout(() => {
+      yq.trigger();
+    },3000)
+    // yq.trigger();
+    // 先形成他们之间的关系 订阅者在哪？ 订阅者根据发布者的操作做响应的反馈
+
+  </script>
+</body>
+</html>
