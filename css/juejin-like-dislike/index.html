@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>掘金点赞和取消点赞</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- <div class="item" data-flag="0">
+      <img class="icon" src="https://b-gold-cdn.xitu.io/v3/static/img/zan.e9d7698.svg" alt="">
+      <span class="count "> 99 </span>
+    </div>
+    <div class="item" data-flag="0">
+      <img class="icon" src="https://b-gold-cdn.xitu.io/v3/static/img/zan.e9d7698.svg" alt="">
+      <span class="count "> 99 </span>
+    </div>
+    <div class="item" data-flag="0">
+      <img class="icon" src="https://b-gold-cdn.xitu.io/v3/static/img/zan.e9d7698.svg" alt="">
+      <span class="count "> 99 </span>
+    </div> -->
+  </div>
+  <script>
+
+    const disLike = 'https://b-gold-cdn.xitu.io/v3/static/img/zan.e9d7698.svg';
+    const like = 'https://b-gold-cdn.xitu.io/v3/static/img/zan-active.930baa2.svg';
+
+    let flag = false;
+    const container = document.querySelector('.container');
+    let defaultArr = [
+      { count: 80, flag: '0' },
+      { count: 90, flag: '1' },
+      { count: 1000, flag: '0' }
+    ]
+    const juejinlikeStr = localStorage.getItem('juejinlike');
+    if(juejinlikeStr){
+      defaultArr = JSON.parse(juejinlikeStr);
+    }
+
+    // defaultArr
+    const htmlContentArr = defaultArr.map(function (likeItem,index) {
+      const {count,flag} = likeItem;
+      return `
+      <div class="item" data-flag="${flag}" data-index="${index}" data-click="able">
+      <img class="icon" src="${flag === '0'? disLike:like}" alt="" data-click="able">
+      <span class="count ${flag ==='0'? '':'active'}" data-click="able"> ${count} </span>
+    </div>
+    `
+    });
+    //join
+    container.innerHTML = htmlContentArr.join(' ');
+    //事件部分
+      container.addEventListener('click',function(event){
+        //点那个节点 event.target 就是谁
+        // console.log(event.target);
+        const clickAble = event.target.dataset.click;
+        if(clickAble){
+          // console.log('点赞')
+          const itemContainer = event.target.dataset.flag ? 
+          event.target : event.target.parentNode;
+          
+          const icon = itemContainer.querySelector('.icon');
+        const count = itemContainer.querySelector('.count');
+        let countNumber = count.innerHTML;
+        countNumber = parseInt(countNumber);
+        //data-flag
+        let flag = itemContainer.dataset.flag
+        //点赞
+
+        if (flag === '0') {
+          // 点赞
+          icon.src = like;
+          countNumber += 1;
+          count.classList.add('active');
+          flag = '1';
+        } else {
+          //取消点赞
+          icon.src = disLike;
+          countNumber -= 1;
+          count.classList.remove('active');
+          flag = '0';
+        }
+        // flag = !flag;
+        itemContainer.dataset.flag = flag;
+        count.innerHTML = countNumber;
+        //本地存储
+        // localStorage.setItem()
+        // localStorage.getItem()
+        let index = itemContainer.dataset.index;
+        index = parseInt(index);
+        defaultArr[index] = {
+          flag:flag,
+          count:countNumber
+        }
+        localStorage.setItem('juejinlike',JSON.stringify(defaultArr)); //第一个是标识保存的对象名字  第二个值是保存的时候的值，只能是一个字符串
+        }
+      })
+
+    const items = document.querySelectorAll('.item');
+
+    //version 2
+    /*for (let i = 0; i < items.length; i++) {
+      items[i].addEventListener('click', function () {
+        const icon = items[i].querySelector('.icon');
+        const count = items[i].querySelector('.count');
+        let countNumber = count.innerHTML;
+        countNumber = parseInt(countNumber);
+        //data-flag
+        let flag = items[i].dataset.flag
+        //点赞
+
+        if (flag === '0') {
+          // 点赞
+          icon.src = like;
+          countNumber += 1;
+          count.classList.add('active');
+          flag = '1';
+        } else {
+          //取消点赞
+          icon.src = disLike;
+          countNumber -= 1;
+          count.classList.remove('active');
+          flag = '0';
+        }
+        // flag = !flag;
+        items[i].dataset.flag = flag;
+        count.innerHTML = countNumber;
+
+      })
+    }
+    */
+    
+    // version 1
+
+    /* const item = document.querySelector('.item');
+     const icon = document.querySelector('.icon');
+     const count = document.querySelector('.count');
+
+     // 默认是未点赞的状态
+     let flag = false;
+     item.addEventListener('click', () => {
+       let countNum = count.innerHTML;
+       countNum = parseInt(countNum);
+       if (flag) {
+
+         //取消点赞
+         icon.src = disLike;
+         countNum -= 1;
+         // count.classList.remove('active');
+       } else {
+
+         // 点赞
+         icon.src = like;
+         countNum += 1;
+         // count.classList.add('active');
+       }
+       count.classList.toggle('active');
+       count.innerHTML = countNum;
+       flag = !flag;
+     })*/
+  </script>
+</body>
+
+</html>
