@@ -161,6 +161,9 @@ html,body
     padding-top 0.4rem
     margin-bottom 0.3rem
     border-top 1px solid #e5e5e5
+  .section-seperate1
+    padding-top 0.4rem
+    border-top 1px solid #e5e5e5
   .section-expander
     padding-left 0.4rem
     padding-right 0.4rem
@@ -248,6 +251,47 @@ html,body
           height 1.867rem
         &:last-child
           margin-right 0
+
+  .por
+    position relative
+    .join-comment
+      position absolute
+      font-size 14px
+      background-color red
+      color $font_color_white
+      padding 0.1rem 0.3rem
+      border-radius 15px
+      top 50%
+      right 0
+      transform translateY(-50%)
+  .comments
+    overflow hidden
+    padding 0.2rem 0 0.4rem 0
+    .comments-items
+      float left
+      border 1px solid #000
+      border-radius 15px
+      padding  0.1rem  0.1rem
+      margin-top 0.2rem
+      margin-right 0.2rem
+      .comment-item__sort span
+        font-size 14px
+
+  .more-comments
+    padding  0.2rem  0.2rem
+    text-align center
+    color red
+    margin-top 0.1rem
 #toast
   display none
-              
+.nav-foo
+  height 1.067rem
+  font-size 18px
+  text-align center
+  background-color $hdbg_color
+  padding 6px
+  box-sizing border-box
+  span
+    color $font_color_white
+    display inline-block
+    

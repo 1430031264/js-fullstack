@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -146,7 +145,67 @@
         <p class="weui-toast__content">已标记为想看</p>
       </div>
     </div>
+    <!-- section 6 -->
+    <section class="section-seperate1 section-expander">
+      <p class="section-til por">讨论
+        <span class="join-comment">参与讨论</span>
+      </p>
+      <ul class="comments">
+        <li class="comments-items">
+          <div class="comment-item__sort"><span>全部</span><span></span></div>
+        </li>
+        <li class="comments-items">
+          <div class="comment-item__sort"><span>好评</span><span>17575</span></div>
+        </li>
+        <li class="comments-items">
+          <div class="comment-item__sort"><span>差评</span><span>266</span></div>
+        </li>
+        <li class="comments-items">
+          <div class="comment-item__sort"><span>点映</span><span>1308</span></div>
+        </li>
+        <li class="comments-items">
+          <div class="comment-item__sort"><span>购票</span><span>18859</span></div>
+        </li>
+        <li class="comments-items">
+          <div class="comment-item__sort"><span>认证作者</span>11<span></span></div>
+        </li>
+        <li class="comments-items">
+          <div class="comment-item__sort"><span>同城</span><span>1144</span></div>
+        </li>
+      </ul>
+
+      <!-- <div class="summary">
+        <div class="all"><span>全部</span></div>
+        <div class="good"><span id="good"></span></div>
+        <div class="bad"><span id="bad"></span></div>
+        <div class="dy"><span id="dy"></span></div>
+        <div class="bought"><span id="bought"></span></div>
+        <div class="author"><span id="author"></span></div>
+        <div class="samecity"><span id="samecity"></span></div>
+      </div> -->
+    </section>
+    <!-- section7 -->
+    <section class="select-comments section-seperate1">
+      <!-- <div class="comment">
+        <img src="" >
+      </div>
+      <div class="comment"></div>
+      <div class="comment"></div>
+      <div class="comment"></div> -->
+      <ul class="handpick">
+        <li>
+          
+        </li>
+      </ul>
+      <div class="more-comments">
+        查看全部<span></span>条评论
+        <i class="arrow-right"></i>
+      </div>
+    </section>
   </div>
+  <footer class="nav-foo">
+    <span>特惠购票</span>
+  </footer>
   <script>
     (function () {
       $.ajax({
@@ -165,9 +224,14 @@
           $('.address-time .time').html(res.data.time)
           $('.movie-detail .date').html(res.data.date)
           $('.text-expander__content p').html(res.data.desc)
+
+          //评论总数
+          $('.more-comments span').html(res.data.commentTotal)
           celebrity(res.data.person)
           booking(res.data.booking)
           photo(res.data.pictures)
+          // handpick(res.data.comment)
+          // specific(res.data.commentTotal)
         }
       })
       function star(e) {
@@ -219,6 +283,16 @@
         </li>`)
         }
       }
+
+      //讨论
+      // function specific(s) {
+      //   $('#good ').htmi(s.good)
+      //   $('#bad ').htmi(s.bad)
+      //   $('#dy ').htmi(s.dy)
+      //   $('#bought ').htmi(s.bought)
+      //   $('#author ').htmi(s.author)
+      //   $('#samecity ').htmi(s.samecity)
+      // }
       // 票房
       function booking(e) {
         $('#ranking').html(e.ranking)
@@ -237,6 +311,20 @@
         </li>`)
         }
       }
+      //精选
+      // function handpick(arr) {
+      //   for (let n of arr) {
+      //     $('.movie-celebrities').append(`<li>
+      //     <a href="#" class="link">
+      //       <div class="movie-celebrities__pic">
+      //         <img src="${n.avatal}" alt="">
+      //       </div>
+      //       <span class="movie-celebrities__nick">${n.name}</span>
+      //       <span class="movie-celebrities__roles">${n.sort}</span>
+      //     </a>
+      //   </li>`)
+      //   }
+      // }
     })()
   </script>
 </body>

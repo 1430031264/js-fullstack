@@ -195,6 +195,10 @@ body {
   margin-bottom: 0.3rem;
   border-top: 1px solid #e5e5e5;
 }
+.page .section-seperate1 {
+  padding-top: 0.4rem;
+  border-top: 1px solid #e5e5e5;
+}
 .page .section-expander {
   padding-left: 0.4rem;
   padding-right: 0.4rem;
@@ -300,6 +304,53 @@ body {
 .page .movie-photo .movie-photo__lists .stage-img-container:last-child {
   margin-right: 0;
 }
+.page .por {
+  position: relative;
+}
+.page .por .join-comment {
+  position: absolute;
+  font-size: 14px;
+  background-color: #f00;
+  color: #fff;
+  padding: 0.1rem 0.3rem;
+  border-radius: 15px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.page .comments {
+  overflow: hidden;
+  padding: 0.2rem 0 0.4rem 0;
+}
+.page .comments .comments-items {
+  float: left;
+  border: 1px solid #000;
+  border-radius: 15px;
+  padding: 0.1rem 0.1rem;
+  margin-top: 0.2rem;
+  margin-right: 0.2rem;
+}
+.page .comments .comments-items .comment-item__sort span {
+  font-size: 14px;
+}
+.page .more-comments {
+  padding: 0.2rem 0.2rem;
+  text-align: center;
+  color: #f00;
+  margin-top: 0.1rem;
+}
 #toast {
   display: none;
+}
+.nav-foo {
+  height: 1.067rem;
+  font-size: 18px;
+  text-align: center;
+  background-color: #e54847;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.nav-foo span {
+  color: #fff;
+  display: inline-block;
 }
