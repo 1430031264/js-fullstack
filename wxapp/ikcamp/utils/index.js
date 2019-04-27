@@ -34,7 +34,7 @@ let util = {
     })
   },
   request(opt) {
-    let { url, data, header, method, dataType, mock = false } = opt;//相当与let url = opt.url..
+    let { url, data, header, method, dataType, mock = false } = opt;//相当与let url = opt.url.. 最后一个是或者mock = false
     let self = this;
     return new Promise((resolve, reject) => {
       if (mock) {//开发环境使用的方法
