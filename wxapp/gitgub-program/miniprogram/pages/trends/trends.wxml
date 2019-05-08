@@ -1,0 +1,5 @@
+<view class="trends">
+<!--trend 自定义组件  repo 传参-->
+  <trend repo="{{item}}" wx:for="{{trends}}" wx:key="{{index}}">
+  </trend>
+</view>
