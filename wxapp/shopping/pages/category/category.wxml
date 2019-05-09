@@ -1,0 +1,36 @@
+<!--pages/category/category.wxml-->
+
+<view class="main">
+  <!-- {{curIndex === index?'on':''}} 给它添加一个动态的类名on 当页面的index = curIndex的时候，就给相应的页面的元素加上on类名 -->
+  <view class="category-left">
+    <view wx:for="{{category}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}"
+    bindtap="switchTab"
+    class="cate-list {{curIndex === index?'on':''}}">
+      {{item.name}}
+    </view>
+  </view>
+  <!-- scroll-into-view 调到所包裹的子页面 -->
+  <scroll-view class="categroy-right" scroll-y scroll-into-view="{{toView}}" scroll-with-animation="true">
+    <block wx:for="{{detail}}" wx:key="{{item.id}}">
+      <view class="cate-box" id="{{item.id}}">
+        <view class="cate-banner">
+          <image src="{{item.banner}}"></image>
+        </view>
+        <view class="cate-title">
+          <text>{{item.cate}}</text>
+        </view>
+        <view class="product">
+          <!-- wx:for-item="product" 在第二个for循环里面强制把默认的item 改为 product -->
+          <view class="product-list" wx:for="{{item.detail}}" wx:key="index" wx:for-item="product">
+            <navigator url="../list/list">
+              <image src="{{product.thumb}}"></image>
+              <view class="classname">
+                <text>{{product.name}}</text>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
