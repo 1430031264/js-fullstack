@@ -1,0 +1,6 @@
+<view 
+bindtap="_getCountdownEvent"
+>
+ {{timerText}}{{start?'s重试':''}}
+    
+</view>

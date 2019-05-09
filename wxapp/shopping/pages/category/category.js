@@ -21,12 +21,11 @@ Page({
     console.log(e)
     
     this.setData({
-      toView : e.target.dataset.id,
-      curIndex : e.target.dataset.index
+      toView : e.target.dataset.id,//点击跳转页面
+      curIndex : e.target.dataset.index//让样式跟着页面动，当到达相应的页面，赋予对应的元素on类名
     })
 
-    // let nowID = e.target.dataset.id
-    // wx.navigateTo({ url: '../list/list?nowID=' + nowID })
+ 
   },
   /**
    * 生命周期函数--监听页面加载
@@ -76,7 +75,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    
+    // let nowID = e.target.dataset.id
+    // wx.navigateTo({ url: '../list/list?nowID=' + nowID })
   },
 
   /**
