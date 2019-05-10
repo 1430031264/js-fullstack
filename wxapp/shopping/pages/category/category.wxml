@@ -10,7 +10,7 @@
     </view>
   </view>
   <!-- scroll-into-view 调到所包裹的子页面 -->
-  <scroll-view class="categroy-right" scroll-y scroll-into-view="{{toView}}" scroll-with-animation="true">
+  <scroll-view class="categroy-right" scroll-y scroll-into-view="{{toView}}" scroll-with-animation="true" bindtouchend="touch" >
     <block wx:for="{{detail}}" wx:key="{{item.id}}">
       <view class="cate-box" id="{{item.id}}">
         <view class="cate-banner">
