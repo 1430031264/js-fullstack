@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/category/category",
-    "pages/index/index",
-    
+  
     "pages/cart/cart",
-    "pages/user/user"
+    "pages/index/index",
+    "pages/category/category",
+    "pages/user/user",
+    "pages/orders/orders",
+    "pages/address/address"
   ],
-
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#AB956D",
@@ -48,13 +49,12 @@
       }
     ]
   },
-  "networkTimeout":{
-    "request":10000,
-    "connectSocket":10000,
-    "uploadFile":10000,
-    "downloadFile":10000
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
   },
-  "debug":false,
-  "sitemapLocation":"sitemap.json"
-
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
 }
