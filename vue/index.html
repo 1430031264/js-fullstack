@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<style>
+  li{
+    list-style-type: none;
+  }
+</style>
+<body>
+  <div id="app">
+    {{message}}
+    <!-- v-bind 用来绑定属性 v-bind: 缩写为： v-on: 用来绑定方法的 缩写为@-->
+    
+    <p class="cool" v-bind:class="{good:isGood}" @click="reverseMsg">{{msg}}</p>
+    <!-- <p class="cool" v-bind:class="isGood ? 'good': 'bad'" >四红爱好告诉过哈市打工奥数爱的</p> -->
+    <!-- 添加一个在数据源中指定的类名 -->
+    <!-- <p class="cool" :class="[activeClass]" >四红爱好告诉过哈市打工奥数爱的</p> -->
+    <ul>
+      <!-- 自己起的名字叫 in 数组名 -->
+      <li v-for="todo in todos">{{todo.text}}</li>
+    </ul>
+
+    <p>{{content}}</p>
+    <!-- v-model 页面数据变化，数据源的数据也变化 -->
+    <input type="text" v-model="content">
+  </div>
+  <script>
+    var app = new Vue({
+      el: "#app",//指定于当前vue的代码作用到指定的页面结构 el -- element
+      data: {
+        message: 'alkdlahglhaslghashaghasdfal',
+        isGood: true,
+        activeClass:'active',
+        todos: [
+          {text: '学习vue,学这个使我快乐，天天如此，天天快乐'},
+          {text: '学习html,学这个使我快乐，天天如此，天天快乐'},
+          {text: '学习css,学这个使我快乐，天天如此，天天快乐'},
+          {text: '学习js,学这个使我快乐，天天如此，天天快乐'},
+          {text: '学习LOL,学这个使我快乐，天天如此，天天快乐'},
+        ],
+        content: '',
+        msg:'爱上了就放假啦就发生奥数',
+      },
+      methods: {
+        reverseMsg(){
+          // this的作用域已经指向好了Vue了，this.data.msg = this.msg ,源码已经帮我们干好让this.data = this 当我们用要取数据的时候，我们不用this.data 直接this就行了
+          //split切 reverse 道过来 join拼接
+          this.msg = this.msg.split('').reverse().join('')
+        }
+      }
+    })
+    
+  </script>
+</body>
+</html>
