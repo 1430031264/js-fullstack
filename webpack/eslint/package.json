@@ -1,0 +1,25 @@
+{
+  "name": "eslint",
+  "version": "1.0.0",
+  "description": "js 在webpack中承担者入口文件的角色 babel-loader 也和它打交道 eslint 没有这个不要在大厂写代码\r 大厂有代码风格，每家风格不一样，风格不一致，通不过，eslint确保每个人的代码风格一致\r 在babel-loader 前先用eslint一下",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
+  },
+  "dependencies": {
+    "eslint": "^5.16.0",
+    "eslint-loader": "^2.1.2"
+  }
+}
