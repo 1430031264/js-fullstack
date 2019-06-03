@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <title>watch</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="wendu">{{wendu}}</div>
+    <p class="suggestion">{{suggestion}}</p>
+    <div class="btn">
+      <button @click='add'>add</button>
+      <button @click='reduce'>reduce</button>
+    </div>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          wendu: 27,
+          suggestion: '短袖'
+        }
+      },
+      methods: {
+        add() {
+          return this.wendu +=5
+        },
+        reduce(){
+          return this.wendu -=5
+        }
+      },
+      
+      // watch: {
+      //   // wendu:function(){}
+      //   wendu (newVal,oldVal) {
+      //     if(newVal >= 40){
+      //       this.suggestion='建议不穿，裸奔'
+      //     }else if(newVal < 40 && newVal > 20){
+      //       this.suggestion = '可以掏出你的短袖了'
+      //     }else if(newVal < 20 && newVal > 0){
+      //       this.suggestion = '穿夹克/长裙吧'
+      //     }else{
+      //       this.suggestion = '自己选择让被子封印，如要出门，请模仿粽子'
+      //     }
+      //   }
+      // }
+
+    })
+    app.$watch('wendu',function(newVal,oldVal){
+      if(newVal >= 40){
+            this.suggestion='建议不穿，裸奔，贼刺激'
+          }else if(newVal < 40 && newVal > 20){
+            this.suggestion = '可以掏出你的短袖了'
+          }else if(newVal < 20 && newVal > 0){
+            this.suggestion = '穿夹克/长裙吧'
+          }else{
+            this.suggestion = '自己选择让被子封印，如要出门，请模仿粽子'
+          }
+    })
+  </script>
+</body>
+
+</html>
