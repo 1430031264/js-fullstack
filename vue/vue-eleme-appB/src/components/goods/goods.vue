@@ -123,7 +123,6 @@ export default {
       this.foodsScroll.on('scroll',pos =>{
         this.scrollY = Math.abs(Math.round(pos.y))
         // console.log(this.scrollY)
-        // console.log(pos)
       })
     },
     _calculateHeight () {
