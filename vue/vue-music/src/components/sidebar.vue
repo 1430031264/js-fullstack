@@ -48,18 +48,28 @@
         </ul>
       </div>
     </div>
+    <div v-show="showSidebar" class="sidebar_mask" @click="_hidebar"></div>
   </div>
 </template>
 
 <script>
+// mapGetters 解构构getters 里面的所有方法 ，想在那个页面用getters里面的方法，就在那个页面上引入一个mapGetters，就能使用vuex里面的getters的方法
+import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      showSidebar: true
     }
   },
+  computed: {
+    ...mapGetters([
+      'showSidebar'
+    ])
+  },
   methods: {
-    _hidebar () {}
+    _hidebar () {
+      //如何用vuex里面的 actions 里面的方法
+      this.$store.dispatch('setShowSidebar',false)
+    }
   }
 }
 </script>

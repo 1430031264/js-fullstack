@@ -15,6 +15,7 @@
       <router-view></router-view>
     </keep-alive>
     <!-- 播放组件 play -->
+    <play></play>
     <!-- sidebar -->
     <sidebar></sidebar>
   </div>
@@ -24,12 +25,14 @@
 import header from '@/components/header'
 import tab from '@/components/tab'
 import sidebar from '@/components/sidebar'
+import play from '@/components/play'
 export default {
   name: 'App',
   components: {
     'v-header': header,
     tab,
-    sidebar
+    sidebar,
+    play
   }
 }
 </script>
@@ -57,5 +60,5 @@ html,body
   -webkit-tap-highlight-color transparent
   background rgba(8,5,58,0.9)
   color #ffffff
-
+* { touch-action: pan-y; } 
 </style>

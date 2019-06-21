@@ -8,16 +8,16 @@ axios.defaults.timeout = 10000;
 axios.defaults.baseURL = 'http://localhost:3000';
 
 //返回状态判断
-axios.intercepetors.response.use((res) => {
+axios.interceptors.response.use((res) => {
   if (res.data.code !== 200) {
-    vue.$toast('网络异常');
-    vue.$hideLoading();
+    vue.$toast('网络异常')
+    vue.$hideLoading()
     return Promise.reject(res)
   }
   return res
 }, (error) => {
-  vue.$toast('网络异常');
-  vue.$hideLoading();
+  vue.$toast('网络异常')
+  vue.$hideLoading()
   return Promise.reject(error)
 });//获取axios返回的东西
 
