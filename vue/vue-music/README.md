@@ -7,6 +7,7 @@
 
 text-overflow ellipsis 超出打点
 word-spacing nowrap 强制一行显示
+父容器font-size 0 子容器取消间距
 
 
 插槽 slot
