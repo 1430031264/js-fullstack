@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "今天我这边也下雨，好巧哦",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "巧个鬼，我这里雨都停了几天了",
+      "postId": 1
+    },
+    {
+      "body": "雨一直下，气氛不算融洽",
+      "postId": "2",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
