@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { debounce } from '@/common/util'
 export default {
   props: {
     placeholder: {
@@ -29,6 +30,13 @@ export default {
     blur () {
       this.$refs.query.blur()
     }
+  },
+  // 子父组件的通信 -- 子组件向父组件传值
+  //监听用户输入的东西，没输入一个字就监听一下
+  created () {
+    this.$watch('query',debounce((newQuery) => {
+      this.$emit('query',newQuery)
+    }))
   }
 }
 </script>
