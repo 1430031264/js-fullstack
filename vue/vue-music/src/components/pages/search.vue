@@ -2,7 +2,7 @@
   <div class="search">
     <div class="search-box-wrapper">
       <!-- 搜索框 -->
-      <searchBox @query="onQueryChange"></searchBox>
+      <searchBox @query="onQueryChange" ref="searchBox"></searchBox>
     </div>
     <div class="shortcut-wrapper" ref="shortcutWrapper" v-show="!query">      
       <v-scroll class="shortcut" ref="shortcut" :data="shortcut" :refreshDelay="refreshDelay">
@@ -25,7 +25,7 @@
               </span>
             </h1>
             <!-- 搜索历史的列表 -->
-            <searchlist :searches="searchHistory"></searchlist>
+            <searchlist :searches="searchHistory" @select="addQuery"></searchlist>
           </div>
         </div>
       </v-scroll>
@@ -44,14 +44,13 @@ import searchlist from '@/components/searchlist'
 import suggest from '@/components/suggest'
 import api from '@/api'
 import { mapGetters } from 'vuex'
+import { searchMixin } from '@/common/mixin.js'
 export default {
   name: 'search',
   data () {
     return {
-      query: '',
       shortcut: [],
       hotKey:[],
-      refreshDelay: 2
     }   
   },
   components: {
@@ -60,22 +59,9 @@ export default {
     searchlist,
     suggest
   },
-  computed: {
-    ...mapGetters([
-      'searchHistory'
-    ])
-  },
+  mixins: [searchMixin],//当页面代码太多，或者为了使代码功能更加分明，我们可以把一部分代码分出去，分到mixin里面，然后引进来
   methods: {
     showConfirm () {},
-    onQueryChange (query) {
-      // console.log(query)
-      this.query = query
-    },
-    saveSearch (data) {
-      console.log(data)
-      this.$store.dispatch('saveSearchHistory',this.query)
-    },
-    blurInput () {},
     _getHotKey () {
       api.HotSearchKey ().then((res) => {
         if (res.code === 200) {

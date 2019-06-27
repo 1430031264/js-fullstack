@@ -23,3 +23,8 @@ v-html 给页面添加内容  等同于再页面上挖个坑{{}}  v-html还支�
 getters 直接取出vuex仓库里面的东西来用，不能进行操作，只能取出来用
 mutations 修改数据源
 actions 
+
+
+import { searchMixin } from '@/common/mixin.js'
+
+ mixins: [searchMixin],//当页面代码太多，或者为了使代码功能更加分明，我们可以把一部分代码分出去，分到mixin里面，然后引进来
