@@ -3,7 +3,8 @@ import * as types from '../types' //* as 代表引用type.js里面的所有expor
 
 const state = {
   showSidebar: false,
-  fullScreen: false
+  fullScreen: false,
+  searchHistory: [123]
 }
 
 const mutations = {
@@ -12,6 +13,9 @@ const mutations = {
   },
   [types.SET_FULL_SCREEN] (state,status) {
     state.fullScreen = status
+  },
+  [types.COM_SAVE_SEARCH_HISTORY] (state) {
+    state.searchHistory = state
   }
 }
 
@@ -26,11 +30,17 @@ const actions = {
   // backPlayingSong({ commit }) {
   //   commit(types.SET_FULL_SCREEN,false)
   // }
+  saveSearchHistory ({ commit,status },query) {
+    let searchHistory = [query, ...state.searchHistory.slice()]
+    searchHistory = [...new Set(searchHistory)]
+    commit (types.COM_SAVE_SEARCH_HISTORY,searchHistory)
+  }
 }
 
 const getters = {
   showSidebar: state => state.showSidebar,
-  fullScreen: state => state.fullScreen
+  fullScreen: state => state.fullScreen,
+  searchHistory: state => state.searchHistory
 }
 
 export default {
