@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 关于call bind apply -->
+  <script>
+    var a = {
+      user: '蜗牛',
+      fn: function (n,m,f) {
+        console.log(this.user)
+        // console.log(n + 1)  i
+        // console.log(n + m) ii
+        console.log(n + m + f)
+      }
+    }
+    // 这样子输出的undefined
+    // var b = a.fn
+    // b() 
+    //这个能输出蜗牛
+    // a.fn() 
+    //这个也能输出蜗牛
+    var b = a.fn
+    //b.call() //此时this指向window
+    //第一个参数就是要把谁的this的作用域指向谁，后面的参数就是执行a 里面的逻辑要用的参数
+    // b.call(a,5)   i
+
+    // b.apply(a,[9])  i
+    // b.apply(a,[0,2]) ii
+
+    // bind改变函数内部this指向,指定函数this绑定为foo，与call的不同之处：产生一个新函数，之后在运行的时候，this就是被绑定的对象
+    var c = b.bind(a,5)
+    c(3,4)
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log(this)
+    let _new = function () {
+      let target = {}
+      // 定义了多个参数，第一个参数是构造函数  arguments js中参数的统称
+      let [constructor, ...args] = [...arguments]
+      //给target的原型上挂载一个原型链 执行【原型】连接 执行完后target会成为constructor的实例，
+      target.__proto__ = constructor.prototype
+      // 执行构造函数，将函数中的属性或方法加入到我们创建的target对象里面
+      let result = constructor.apply(target,args)
+      if (result && (typeof(result) === 'object') || typeof(result) === 'function') {
+        //如果构造函数结果返回的是一个对象，那么返回这个对象
+        return result
+      }
+      //如果构造函数返回的不是一个对象，那么就返回创建的的新对象
+      return target
+    }
+  </script>
+</body>
+</html>
