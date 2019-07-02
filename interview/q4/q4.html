@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 闭包 -->
+  <!-- <script>
+    function foo () {
+      let a = 2
+      return function bar () {
+        // return a + 2
+        console.log(a)
+      }
+    }
+    let func = foo()
+    func()
+
+
+    function foo2 () {
+      let a = 2
+      function bar2 () {
+        console.log(a)
+        let b = a
+        return b
+      }
+      return bar2()
+    }
+    foo2()
+  </script> -->
+
+  <script>
+    let a = []
+    for (let i = 0; i < 10; i++) {
+      a[i] = (function(j){
+        return function () {
+          console.log(j)
+        }
+      })(i)
+    }
+    a[6]()
+  </script>
+</body>
+</html>
