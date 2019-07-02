@@ -18,7 +18,7 @@
         console.log(n + m + f)
       }
     }
-    // 这样子输出的undefined
+    // 这样子输出的undefind
     // var b = a.fn
     // b() 
     //这个能输出蜗牛
@@ -35,6 +35,20 @@
     // bind改变函数内部this指向,指定函数this绑定为foo，与call的不同之处：产生一个新函数，之后在运行的时候，this就是被绑定的对象
     var c = b.bind(a,5)
     c(3,4)
+
+    //call方法的实现原理 首先定义一个参数和后面可能出现的参数，吧谁调用这个方法的this指向第一个参数的作用域  然后执行这个函数，
+    Function.prototype.called = function () {
+      let [thisArg, ...args] = [...arguments]
+      if (!thisArg) {
+        thisArg = typeof window === 'undefind' ? gloal : window
+      }
+      //this的指向是当前函数 func.called
+      thisArg.func = this
+      //执行函数  ...args 代表无穷个参数，因为不知道以后可能有几个参数
+      let result = thisArg.func(...args)
+      delete thisArg.func //thisArg 上并没有 func属性，因此需要移除
+      return result
+    }
   </script>
 </body>
 </html>
