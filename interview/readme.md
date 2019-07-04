@@ -116,3 +116,19 @@
 
 ##q6 防抖节流函数原理
       
+
+## q7 __proto__ 和 prototype 的关联 
+  1.  __proto__是每一个实例都有的属性，可以访问[prototype]属性，
+    实例的  __proto__与其构造函数的prototype指向的是同一个对象
+      let wn = new Friends('wn')
+      wn.__proto__  ===  Friends.prototype
+
+  2. typeof其实就是判断参数是什么类型的实例，就一个参数，返回一个用来表示表达式的数据类型的字符串。
+  3. instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。用于判断一个变量是否某个对象的实例
+
+  4. 实际上两种判断类型的运算符都有缺陷，那么我们如何能准确的判断数据类型呢？
+    使用Object.prototype.toString.call()    原理：
+    ·Object.prototype.toString 会取得对象的内部属性，
+    ·然后依据这个内部属性返回一个'[Object 对应的数据类型]' 
+    ·然后.call() 将作用域放到这个'[Object 对应的数据类型]'里面去，我们就可以取到任何对象的内部属性
+    ·然后吧类型检测转化为字符串比较，达到目的
