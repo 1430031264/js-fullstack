@@ -14,6 +14,6 @@ function bubbleSort(arr) {
   }
   return arr;
 }
-// 每次让一个数排好 两两交换位置
+// 选择排序
 const arr = [8,6,10,2,4];
 console.log(bubbleSort([8,2,10,5,4,50,9,49,11,51,86,30]))
