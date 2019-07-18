@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function foo() {
+      console.log(65465)
+      return 666
+    }
+    // Generator 函数  * async  yield await
+    function* test () {
+      console.log(1)
+      let a = yield foo()
+      console.log('a',a)
+      let b = yield 2
+      console.log('b',b)
+      let c = yield 3
+      console.log('c',c)
+    }
+    // Generator 函数的运行和普通的函数不一样，普通函数直接test() 就能执行了 但是 Generator 函数单独键入test()只是生成一个对象
+    //惰性的 不会自动执行玩所有的代码，要每次只能执行 yield
+     var g = test();
+    // test() 实际上是生成一个对象，上面有一个{ next } 的属性，调用 next 一步一步执行
+    // g.next() //在控制台上面执行
+    // g.next()
+    // g.next() 
+
+    //能让上面的test 自己执行玩所有的代码
+    // let gn = g.next()
+    // while(!gn.done) {
+    //   gn = g.next(gn.value)
+    // }
+    // 让 Generator 函数自己全部执行完成
+
+    function* test1() {
+      let d = yield true;
+      console.log('d',d);
+      let e = yield 1000
+      console.log('e',e)
+    }
+    function autoRun(generatorFun) {
+      let h = generatorFun();
+      let hn = h.next();
+      while(!hn.done) {
+        hn = h.next(hn.value)
+      }
+    }
+    autoRun(test1)
+    autoRun(test)
+
+    function autoRun1(generatorFun) {
+      var g = generatorFun();
+      function next(data) {
+        var result = g.next();
+        if (result.done) return;
+        next(result.value);
+      }
+      next()
+    }
+    autoRun1(test1)
+    autoRun1(test)
+
+    let fooPromise = function() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {resolve('fooPromise')}, 1000)
+      })
+    }
+    let barPromise = function() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {resolve('barPromise')}, 2000)
+      })
+    }
+    _asyncToGenerator(
+      function* () {
+        let a = yield fooPromise();
+        console.log('_asyncToGenerator a', a);
+        let c = yield barPromise();
+        console.log('_asyncToGenerator c', c);
+        let b = yield 2;
+        console.log('_asyncToGenerator', b);
+      }
+    )
+    // fooPromise().then(() => {
+    //   let b = yield 2;
+    // })
+    function _asyncToGenerator(generateFun) {
+      return new Promise((resolve, reject) => {
+        let gen = generateFun();
+        // key === next
+        function step(key, arg) {
+          let info = {};
+          // info = { value, done }
+          info = gen[key](arg);
+          if (info.done) {
+            resolve()
+          } else {
+            return Promise.resolve(info.value)
+            .then((v) => {
+              return step('next', v);
+            })
+          }
+
+        };
+        step('next');
+      })
+    }
+
+  </script>
+</body>
+</html>
