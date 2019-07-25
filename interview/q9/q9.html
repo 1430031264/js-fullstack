@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    li{
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul id="ul-list">
+      <li>10</li>
+      <li>20</li>
+      <li>30</li>
+      <li>40</li>
+      <li>50</li>
+    </ul>
+  </div>
+  <script>
+    window.onload = function() {
+      var oUl = document.getElementById('ul-list')
+
+      // 使用事件委托 这个事件作用在ul 上 不是作用在 li 上
+      // oUl.addEventListener('click',function(e) {
+      //   console.log(e)
+      //   var target = e.target || e.srcElement
+      //   console.log(target.innerHTML)
+      // })
+      
+      // 不使用事件委托的代码
+      var oLi = document.getElementsByTagName('li')
+      //i 就是数组的下标
+      for (let i in oLi) {
+        oLi[i].index = Number(i) + 1
+        oLi[i].onclick = function() {
+          console.log(this.innerHTML)
+        }
+      }
+    }
+  </script>
+</body>
+</html>
