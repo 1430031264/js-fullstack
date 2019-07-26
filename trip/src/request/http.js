@@ -60,3 +60,37 @@ var request = (options) => {
     throw error
   })
 }
+
+// 封装 http 请求方式
+export const http = {}
+const methods = ['get','post','put','delete']
+methods.forEach(method => {
+  http[method] = (url,params = {}) => {
+    if (method === 'get') {
+      return request({ url, params, method })
+    }
+    return request({ url, body:stringify(params), method })
+  }
+})
+
+export default function plugin (Vue) {
+  if (plugin.installed) {
+    return
+  }
+  plugin.installed = true
+  // defineProperties() 可以直接在一个对象上新增属性或者修改原有属性，并可以返回一个最新的对象
+  //  因为在这里它挂载到了vue原型链上，就不用在main.js里面吧$http挂载到原型链上了
+  Object.defineProperties(Vue.prototype, {
+    $http: {
+      get() {
+        const obj = {
+          get: http['get'],
+          post: http['post'],
+          put: http['put'],
+          delete: http['delete'],
+        }
+        return obj
+      }
+    }
+  })
+}
