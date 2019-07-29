@@ -8,9 +8,8 @@ import 'mand-mobile/lib/mand-mobile.css'
 import store from './store/index'
 
 Vue.use(mandMobile)
-
-//请求拦截器
-import requestPlugin from './request/http'
+// 请求拦截器
+import requestPlugin from './request/http.js'
 Vue.use(requestPlugin)
 
 Vue.config.productionTip = false

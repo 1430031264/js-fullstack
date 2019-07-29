@@ -2,7 +2,7 @@
   <div class="login">
     <div class="login-bg">
       <h1 class="login-title">
-        <img src="../../assets/img/img/logo.png" alt="">
+        <img src="../../assets/img/logo.png" alt="">
       </h1>
       <md-field class="login-input">
         <md-input-item
@@ -31,18 +31,43 @@
 </template>
 
 <script>
+import { Toast } from 'mand-mobile'
+import { mapActions } from 'vuex'
 export default {
   name: 'Login',
   data () {
     return {
+      userData: null,
       user: {
-        name: '15330734121',
+        name: '15330734122',
         password: '12345'
       }
     }
   },
   methods: {
-    loginOnClick () {}
+    loginOnClick () {
+      this.loginAjax()
+    },
+    loginAjax() {
+      let params = {
+        userName: this.user.name,
+        passWord: this.user.password
+      }
+      this.$http.post('/user', params).then(res => {
+        this.userData = res.data.data
+        let tmpUser = JSON.stringify(this.userData)
+        console.log(res.data.data)
+        localStorage.setItem('user',tmpUser)
+        //存到vuex里面
+        this.setUser(this.userData)
+        Toast.succeed(`欢迎回来，${this.userData.name}`, 1500)
+        this.$router.push({path: '/trip'})
+      })
+    },
+    ...mapActions([
+      'setUser',
+      'setUserData'
+    ])
   }
 }
 </script>
@@ -56,7 +81,7 @@ export default {
   width 100vw
   height 100vh
   overflow hidden
-  background url('../../assets/img/img/login-bg.jpg')
+  background url('../../assets/img/login-bg.jpg')
   background-size 100% 100%
   padding 20px
   &-input
@@ -98,5 +123,4 @@ export default {
     height 50px
     font-size 22px
 </style>
-
 

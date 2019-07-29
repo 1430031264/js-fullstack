@@ -8,5 +8,4 @@ const tripUser = [
     }
   }
 ]
-
 export default tripUser

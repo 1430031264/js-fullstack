@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
+import vuex from 'vuex'
 
 import trip from './modules/trip'
 
-export default new Vuex.Store({
+Vue.use(vuex)
+
+export default new vuex.Store({
   modules: {
     trip
   }
