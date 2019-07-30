@@ -84,11 +84,11 @@ export default {
       text-align center
       margin-top 35px
       color #4e4956
-      font-size 20px
+      font-size 50px
     
     p:nth-child(3) 
       text-align center
-      margin-top 65px
+      margin-top 35px
       color #9a9b9b
       font-size 28px
       cursor pointer
