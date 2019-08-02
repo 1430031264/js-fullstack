@@ -249,4 +249,54 @@
     scrollTop：表示滚动后被隐藏的高度
 
 # q16 js拖拽功能的实现
-    
+    使用原生的 onmousedown、onmouseup、onmousemove 事件监听鼠标的操作
+
+# q17 类的创建和继承
+  ##　原型链的继承
+    有一个构造函数(Animal)，如果另外的方法(Cat)想继承构造函数的属性和方法，只需要让这个方法的原型链等于构造函数的实例 Cat.prototype = new Animal() 这样 Cat 就能拥有Animal 的所有属性和方法
+  ## 构造函数的继承
+    有一个构造函数(Animal)，和另外一个构造函数(Cat),如果cat 想继承Animal 的属性和方法，可以将Cat的作用域指向Animal的作用域，也能让Cat的实例能使用到Animal的方法，
+  ```js
+    function Cat3(name) {
+      Animal.call(this)
+      this.name = name || 'Tom'
+    }
+  ```
+    但是有个缺点：因为Cat 只是吧作用域指向了animal的作用域里面，让Cat 的实例能访问animal里面的方法，但是，Cat 的原型链并没有继承了animal的属性和方法，所以Cat 的实例 不是 Animal的实例 即 console.log(cat2 instanceof Animal) // false 
+  ## 组合继承
+    为了解决 console.log(cat2 instanceof Animal) // false 的问题，我们可以用到组合继承，即让 Cat的原型链等于 Animal的实例 Cat3.prototype = new Animal() 实际上就是 原型链继承和构造函数继承的组合实现
+  ## 寄生组合继承
+    如何有一个没有实例方法的类，如何继承构造函数的属性和方法？比如 (function(){ var Super = function(){} })() 这个就是一个没有实例方法的类，想让 Super 能 继承Animal 的属性和方法，我们可以让这个方法的原型链等于Animal的实例，这样就能继承了
+  ```js
+    function Cat4(name) {
+      Animal.call(this)
+      this.name = name || 'Tom'
+    }
+    // 一个没有实例方法的类，如何继承？
+
+    (function () {
+    // 创建一个没有实例方法的类
+      var Super = function () {}
+      Super.prototype = Animal.prototype
+      Cat4.prototype = new Super()
+    })()
+    var cat4 = new Cat4()
+    console.log(cat4.name) // tom
+    console.log(cat4.sleep()) // tom睡着了
+    console.log(cat4 instanceof Cat4) // true
+    console.log(cat4 instanceof Animal) // true
+  ```
+
+# q18 click在 iOS 手机上有300ms的延迟，原因及解决方法
+  原因：判断是否要双击放大
+  解决方法：
+   1. <meta name="viewport" content="width=device-width, initial-scale=no">
+   2. FastClick,其原理是检测到touchend事件，立刻发出模拟click事件，并把浏览器300ms之后真实发出的事件阻断
+
+# q19 Cookie 、 sessionStorage 、 localStorage 的区别
+  Cookie：数据始终在同源的 http 请求中携带（即使不需要），即 cookie 在浏览器和服务器之间来回传递(会跟着 http 请求走)，sessionStorage 和 localStorage 不会自动把数据发给服务器，仅在本地保存。 cookie 还有路径 (path) 的概念，可以限制 cookie 只属于某个路径下，存储大小只有4k左右
+
+  sessionStorage: 仅在当前浏览器窗口关闭前生效，不能长久保存
+
+  localStorage：在所有的同源窗口都是共享的，cookie 也是在所有同源窗口共享。localStorage的大小在5M左右
+  
