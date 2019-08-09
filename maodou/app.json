@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/cars/cars",
+    "pages/index/index",
+    
+    "pages/mine/mine",
+    "pages/preview/preview",
+    "pages/preview2/preview"
+  ],
+  "tabBar": {
+    "color": "#b7b7b7",
+    "selectedColor": "#fb7414",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index-before.png",
+        "selectedIconPath": "images/index-after.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/cars/cars",
+        "iconPath": "images/car-before.png",
+        "selectedIconPath": "images/car-after.png",
+        "text": "选车"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/man-before.png",
+        "selectedIconPath": "images/man-after.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

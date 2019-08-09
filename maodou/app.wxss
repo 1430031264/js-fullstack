@@ -1,0 +1,20 @@
+/**app.wxss**/
+page{
+  background-color: #ffffff;
+}
+ul li{
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* position: relative;
+  z-index: 99; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  /* padding: 200rpx 0; */
+  /* box-sizing: border-box; */
+  
+} 

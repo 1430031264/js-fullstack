@@ -1,0 +1,14 @@
+<view class='scrollBox2 fix-news' wx:if="{{fixTop<scrollTop}}">
+<scroll-view scroll-x="true" class="weui-navbar">
+  <block wx:for="{{list}}" wx-for-index="idnex">
+    <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
+  </block>
+</scroll-view>
+</view>
+<view class='scrollBox static-news'>
+<scroll-view scroll-x="true" class="weui-navbar" >
+  <block wx:for="{{list}}" wx-for-index="idnex">
+    <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
+  </block>
+</scroll-view>
+</view>

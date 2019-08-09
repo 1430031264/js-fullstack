@@ -1,0 +1,114 @@
+<scroll-view>
+<!-- 顶部部分 -->
+<view class="header">
+  <!-- 搜索栏 -->
+  <view class="page">
+    <!-- 获取定位信息 -->
+    <view class="local">南昌</view>
+    <!-- 搜索框 -->
+    <view class="weui-search-bar ">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="点击搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索你想要的车</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">
+        取消
+      </view>
+    </view>
+    <!-- 打电话 -->
+    <view class="phone">
+      <image />
+    </view>
+  </view>
+  <!-- 选择导航栏 -->
+  <ul class="filter-wrap {{_num != 0 ? 'pof':''}}" style="z-index: 300;">
+    <li class="sorting {{_num == 1? 'active':''}}" bindtap="chooseBar" data-num="1">
+      <em>排序</em>
+      <image />
+      <!-- 显示/隐藏起来的下拉菜单 -->
+      <ul class="sorting-box " wx:if="{{select == 1}}">
+        <li style="z-index: 300;">
+          <span class="brand-title">默认排序</span>
+        </li>
+        <li style="z-index: 300;">
+          <span class="brand-title">首付由高到低</span>
+        </li>
+        <li style="z-index: 300;">
+          <span class="brand-title">首付由低到高</span>
+        </li>
+        <li style="z-index: 300;">
+          <span class="brand-title">月供由高到低</span>
+        </li>
+        <li style="z-index: 300;">
+          <span class="brand-title">月供由低到高</span>
+        </li>
+        <li style="z-index: 300;">
+          <span class="brand-title">车价由高到低</span>
+        </li>
+        <li style="z-index: 300;">
+          <span class="brand-title">车价由低到高</span>
+        </li>
+        <!-- <li style="z-index: 300;">
+          <span class="brand-title">全款由低到高</span>
+        </li>
+        <li style="z-index: 300;">
+          <span class="brand-title">全款由低到高</span>
+        </li> -->
+      </ul>
+    </li>
+    <li class="brand {{_num == 2? 'active':''}}" bindtap="chooseBar" data-num="2">
+      <em>品牌</em>
+      <image />
+    </li>
+    <li class="level {{_num == 3? 'active':''}}" bindtap="chooseBar" data-num="3">
+      <em>车型</em>
+      <image />
+    </li>
+    <li class="more {{_num == 4? 'active':''}}" bindtap="chooseBar" data-num="4">
+      <em>更多</em>
+      <image />
+    </li>
+  </ul>
+</view>
+<!-- 信息上面的图片 -->
+<view class="bgc">
+  <image src="https://image1.guazistatic.com/qn190603213008b7624da40a9a94dc2304233a7129bc6e.png?imageView2/2/w/750/h/328/q/99" />
+</view>
+<!-- 车辆信息 -->
+<view class="content">
+  <li wx:for="{{items}}" wx:key="{{index}}">
+    <view class="image-box">
+      <view class="left-tag">
+        <view class="letf-tag-wrap">
+          <text wx:if="{{item.hasreturn == true}}">立返{{item.restitution}}</text>
+          <text wx:else>立省{{item.save}}</text>
+        </view>
+      </view>
+      <image src="{{item.carImgUrl}}" />
+    </view>
+    <view class="car-detail">
+      <text>{{item.carDesc}}</text>
+      <view class="tag-box">
+        <view class="tag" style="background:#ffffff;color:#999999;border-color:#e5e5e5">
+          {{item.label}}
+        </view>
+      </view>
+      <view class="payment">
+        <view class="txt">
+          <span class="down_payment">{{item.firstPay}}</span>
+          万开回家
+        </view>
+      </view>
+    </view>
+  </li>
+</view>
+</scroll-view>

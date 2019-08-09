@@ -1,0 +1,151 @@
+<view class="index">
+  <!-- 轮播图 -->
+  <view class='banner'>
+    <view class='swiper_box'>
+      <swiper class='swipers' autoplay="true" current="{{currentSwiper}}" bindchange="swiperChange" >
+        <block wx:for="{{advimg}}" wx:key="index">
+          <swiper-item>
+            <image class="swiper_image" src="{{item.url}}" lazy-load="true" />
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="dots">
+        <block wx:for="{{advimg}}" wx:key>
+          <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="sell-shop">
+    <image src="https://image.guazistatic.com/gz01181210/15/55/bda1f40894b6df011058aa32180e9fc4.png" />
+  </view>
+  <view class="iron-wrap">
+    <view class="iron-box">
+      <view class="iron-item">
+        <view class="img">
+          <image src="https://image.guazistatic.com/gz01190617/17/26/68f3a53a38d402208cc6618b3f6214de.png" />
+        </view>
+        <p class="iron-desc">我要贷款</p>
+      </view>
+      <view class="iron-item">
+        <view class="img">
+          <image src="https://image.guazistatic.com/gz01190617/17/26/c5213e09c8f6ac3881d38f767c551a2e.png" />       
+        </view>
+        <p class="iron-desc">线下门店</p>
+      </view>
+      <view class="iron-item">
+        <view class="img">
+          <image src="https://image.guazistatic.com/gz01190617/17/26/dcdb8d22863b75b5188d712a270d7b71.png" />         
+        </view>
+        <p class="iron-desc">领券中心</p>
+      </view>
+      <view class="iron-item">
+        <view class="img">
+          <image src="https://image.guazistatic.com/gz01190617/17/26/562af0b812eaddf49ce08961215780aa.png" />          
+        </view>
+        <p class="iron-desc">全部车型</p>
+      </view>
+    </view>
+  </view>
+  <view class="carinlet">
+    <view class="sort-box">
+      <ul>
+        <li class="sort-item">10万以下</li>
+        <li class="sort-item">10-15万</li>
+        <li class="sort-item">15万以上</li>
+        <li class="sort-item">超大空间</li>
+        <li class="sort-item">月供1-2千</li>
+        <li class="sort-item">0成首付</li>
+        <li class="sort-item">首付1万内</li>
+        <li class="sort-item">想买SUV</li>
+        <li class="sort-item">
+          <image src="https://image.guazistatic.com/files/brand/1202.png" />
+          日产
+        </li>
+        <li class="sort-item">
+          <image src="https://image.guazistatic.com/files/brand/2272.png" />
+          宝骏
+        </li>
+        <li class="sort-item">
+          <image src="https://image.guazistatic.com/files/brand/1207.png" />
+          大众
+        </li>
+        <li class="sort-item">
+          <image src="https://image.guazistatic.com/files/brand/1195.png" />
+          丰田
+        </li>
+        <li class="sort-item">抢首付</li>
+        <li class="sort-item">首付返现</li>
+        <li class="sort-item">免首付</li>
+        <li class="sort-item">减免月供</li>
+      </ul>
+    </view>
+  </view>
+  <view class="newcomer-banner hasbanner" >
+    <image src="../../images/newBanner.png" />
+  </view>
+  <view class="gray-line"></view>
+  <view class="activity-zone">
+    <view class="activity-box">
+      <view class="activity-module1">
+        <view class="activity-module1-item item0">
+          <image src="https://image1.guazistatic.com/qn190620160355ff2ff2386a4d22a87f6027c8b697a895.png" />
+        </view>
+        <view class="activity-module1-item item1">
+          <image src="https://image1.guazistatic.com/qn19052719305493cc12e711f5f5a31bcf85c51a3dd76a.png" />
+        </view>
+        <view class="activity-module1-item item2">
+          <image src="https://image1.guazistatic.com/qn190626112550dacc1af986d548dde6802a1520b5777d.png" />
+        </view>
+      </view>
+      <view class="activity-module2">
+        <view class="activity-module2-item">
+          <image src="https://image1.guazistatic.com/qn19052719310784e76f569f0191129820a792cd47dbeb.png" />
+        </view>
+        <view class="activity-module2-item">
+          <image src="https://image1.guazistatic.com/qn19062611270330a657a5d3b0cf0d93e2fd1d2f473834.png" />
+        </view>
+        <view class="activity-module2-item">
+          <image src="https://image1.guazistatic.com/qn1905292203083e70dc86ea7022102b24ebd66461a8dc.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="gray-line"></view>
+  <view class="operating-zone">
+    <view class="activity-recommend-box" wx:for="{{recommendimg}}"wx:key>
+      <view class="activity-recommend-wrap" style="background-color:rgba(248, 248, 250, 1);">
+        <view class="title">
+          <view class="title-wrap">
+            <image src="{{item.url}}" />
+            <view class="more">
+              更多
+              <image src="https://sta.maodou.com/xinche_wap/static/images/more-operat.be056bc1.png" />
+            </view>
+          </view>
+        </view>
+        <view class="wrap">
+          <ul class="recommend-ul">
+            <li class="recommend-li" wx:for="{{items}}" wx:key="index" wx:if="{{index<6}}">
+              <view class="hot">
+                <text wx:if="{{item.hasreturn == true}}">立返{{item.restitution}}</text>
+                <text wx:else>立省{{item.save}}</text>
+                <!-- <text>立省2000</text>                   -->
+              </view>
+              <view class="item-box">
+                <image src="{{item.carImgUrl}}" />                
+                <view class="mengceng-activity"></view>
+              </view>
+              <p class="down-pay">首付{{item.firstPay}}万</p>
+              <view class="month">
+                <p class="month_pay">月供{{item.monthPay}}元</p>
+              </view>
+              <p class="chexi">{{item.chexi}}</p>
+            </li>       
+          </ul>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+  

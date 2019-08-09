@@ -1,0 +1,140 @@
+<!-- pages/mine/mine.wxml -->
+<view class="container">
+  <view class="header bgc">
+    <view class="login">
+      <view class="icon">
+        <image id="icon" src="../../images/login-icon.png" />
+      </view>
+      <view class="login-btn">
+        <p class="login-btn-1">点击登陆</p>
+        <p class="login-btn-2">首付3000元开新车</p>
+      </view>
+    </view>
+    <view class="msg">
+      <ul class="items">
+        <li class="item">
+          <view class="item-btn">
+            <view class="pic">
+              <image class="img" src="../../images/collection.png" />
+            </view>
+            <p class="fz">收藏</p>
+          </view>
+        </li>
+        <li class="item">
+          <view class="item-btn">
+            <view class="pic">
+              <image class="img" src="../../images/coupon.png" />
+            </view>
+            <p class="fz">卡券</p>
+          </view>
+        </li>
+        <li class="item">
+          <view class="item-btn">
+            <view class="pic">
+              <image class="img" src="../../images/clock.png" />
+            </view>
+            <p class="fz">预约</p>
+          </view>
+        </li>
+        <li class="item">
+          <view class="item-btn">
+            <view class="pic">
+              <image class="img" src="../../images/order.png" />
+            </view>
+            <p class="fz">订单</p>
+          </view>
+        </li>
+      </ul>
+    </view>
+  </view>
+  <view class="middle bgc">
+    <p>售后服务</p>
+    <ul class="items">
+      <li class="item">
+        <view class="item-btn">
+          <view class="pic">
+            <image class="img" src="../../images/camera.png" />
+          </view>
+          <p class="fz">违章</p>
+        </view>
+      </li>
+      <li class="item">
+        <view class="item-btn">
+          <view class="pic">
+            <image class="img" src="../../images/credit-card.png" />
+          </view>
+          <p class="fz">还款</p>
+        </view>
+      </li>
+      <li class="item">
+        <view class="item-btn">
+          <view class="pic">
+            <image class="img" src="../../images/insurance.png" />
+          </view>
+          <p class="fz">保险</p>
+        </view>
+      </li>
+      <li class="item">
+        <view class="item-btn">
+          <view class="pic">
+            <image class="img" src="../../images/change-name.png" />
+          </view>
+          <p class="fz">过户</p>
+        </view>
+      </li>
+    </ul>
+  </view>
+  <view class="footer bgc">
+    <p>购车服务</p>
+    <ul class="items">
+      <li class="item">
+        <view class="item-btn">
+          <view class="pic">
+            <image class="img" src="../../images/question.png" />
+          </view>
+          <p class="fz">常见问题</p>
+        </view>
+      </li>
+      <li class="item">
+        <view class="item-btn">
+          <view class="pic">
+            <image class="img" src="../../images/feedback.png" />
+          </view>
+          <p class="fz">意见反馈</p>
+        </view>
+      </li>
+      <li class="item">
+        <view class="item-btn">
+          <view class="pic">
+            <image class="img" src="../../images/kefu.png" />
+          </view>
+          <p class="fz">联系客服</p>
+        </view>
+      </li>
+      <li class="item">
+        <view class="item-btn">
+          <view class="pic">
+            <image class="img" src="../../images/gift.png" />
+          </view>
+          <p class="fz">邀请赚返利</p>
+        </view>
+      </li>
+      <li class="item">
+        <view class="item-btn">
+          <view class="pic">
+            <image class="img" src="../../images/Introduction.png" />
+          </view>
+          <p class="fz">毛豆简介</p>
+        </view>
+      </li>
+      <li class="item">
+        <view class="item-btn">
+          <view class="pic">
+            <image class="img" src="../../images/location.png" />
+          </view>
+          <p class="fz">代理商入驻</p>
+        </view>
+      </li>
+    </ul>
+  </view>
+</view>

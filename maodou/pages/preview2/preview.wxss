@@ -1,0 +1,41 @@
+
+.swiper_box {
+  height: auto;
+  position: relative;
+}
+ 
+.swipers {
+  height: 240rpx;
+}
+ 
+.swiper_box image {
+  width: 100%;
+  height: 100%;
+}
+ 
+/*用来包裹所有的小圆点  */
+.dots {
+  width: 125rpx;
+  height: 20rpx;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 90%;
+  transform: translateX(-50%);
+  bottom: 10px;
+}
+/*未选中时的小圆点样式 */
+.dot {
+  width: 20rpx;
+  height: 10rpx;
+  border-radius: 14rpx;
+  margin-right: 26rpx;
+  background-color: #9b9b9b;
+}
+/*选中以后的小圆点样式  */
+.active {
+  width: 20rpx;
+  height: 10rpx;
+  background-color: #ffffff;
+}
+

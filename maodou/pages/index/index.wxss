@@ -1,0 +1,285 @@
+/* pages/index/index.wxss */
+
+/* 广告栏轮播图部分 */
+.swiper_box {
+  height: auto;
+  position: relative;
+}
+.swipers {
+  height: 6.63rem;
+}
+.swiper_box image {
+  width: 100%;
+  height: 100%;
+}
+/*用来包裹所有的小圆点  */
+.dots {
+  width: 3.306rem;
+  height: 0.5334rem;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 90%;
+  transform: translateX(-50%);
+  bottom: 0.5334rem;
+}
+/*未选中时的小圆点样式 */
+.dot {
+  width: 0.5334rem;
+  height: 0.2667rem;
+  border-radius: 0.3734rem;
+  margin-right: 0.69334rem;
+  background-color: #9b9b9b;
+}
+/*选中以后的小圆点样式  */
+.active {
+  width: 0.5334rem;
+  height: 0.2667rem;
+  background-color: #ffffff;
+}
+/* sell-shop */
+.sell-shop>image{
+  width: 100%;
+  height: 2.5rem;
+  background-repeat:  no-repeat;
+  background-size: contain;
+  background-position: 50%
+}
+/* iron-wrap */
+.iron-wrap{
+  width: 100%;
+
+}
+.iron-box{
+  display: flex;
+  height: 3.3rem;
+  padding: 0.9rem 0.8rem; 
+}
+.iron-item{
+  flex: 1;
+  box-sizing: border-box;
+  text-align: center;
+}
+.img{
+ padding: 0 25%;
+}
+.iron-item .img image{
+  width: 2.23rem;
+  height: 2.23rem;
+  display: block;
+}
+.iron-desc{
+  font-size: 0.64rem; 
+}
+/* sort-box */
+.sort-box{
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  padding: 0.533rem 0 0.0533rem;
+  box-sizing: border-box;
+}
+.sort-item{
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  margin-bottom: 0.8rem;
+  font-size: 0.8rem;
+}
+.sort-item image{
+  width: 1.06667rem;
+  height: 1.0667rem;
+}
+/* newcomer-banner */
+.newcomer-banner{
+  width: 18.2rem;
+  margin: 0.2133rem .85333rem .85333rem .85333rem;
+}
+.newcomer-banner image {
+  width: 100%;
+  height: 4.88rem;
+  display: inline-block;
+  overflow: hidden;
+}
+.gray-line{
+  width: 100%;
+  margin: 0 auto;
+  height: 0.4266rem;
+  background-color: #f8f8fa
+}
+/* activity-zone */
+.activity-zone{
+  width: 100%;
+}
+.activity-box{
+  padding: 1.066rem .85333rem;
+}
+.activity-module1{
+  display: flex;
+  flex-flow: wrap;
+  position: relative;
+}
+.activity-module1-item{
+  display: block;
+}
+.item0{
+  width: 9.01333rem;
+  height: 12.26666rem;
+}
+.item1{
+  height: 6rem;
+  width: 9.013333rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.item2{
+  position: absolute;
+  right: 0;
+  top: 6.26666rem;
+  height: 6rem;
+  width: 9.0133333rem;
+}
+.item0 image{
+  height: 100%;
+  width: 100%;
+}
+.item1 image{
+  height: 100%;
+  width: 100%;
+}
+.item2 image{
+  width: 100%;
+  height: 100%;
+}
+.activity-module2{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+.activity-module2-item{
+  display: inline-block;
+  flex: 1;
+  margin-top: 0.2666rem;
+  width: 33.3334%;
+  height: 6.6666rem;
+}
+.activity-module2-item image{
+  width: 100%;
+  height: 100%;
+}
+/* operating-zone */
+.operating-zone{
+  width: 100%;
+}
+.activity-recommend-box{
+  padding: 0.8rem 0.8533rem 0 0.8533rem;
+}
+/* title */
+.title{
+  width: 100%;
+}
+.title-wrap{
+  position: relative;
+  width: 100%;
+}
+.title-wrap image{
+  width: 100%;
+  height: 3.946666rem;
+}
+/* 更多 */
+.more{
+  display: flex;
+  width: 2.08rem;
+  height: 1.013333rem;
+  font-size: .693333rem;
+  color: #ffffff;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  right: 0.6933rem;
+  transform: translate(0,-50%)
+}
+.more image{
+  display: inline-block;
+  flex: .69333rem;
+  height: 100%;
+}
+.recommend-ul{
+  display: flex;
+  flex-wrap:wrap
+}
+.recommend-li{
+  padding-bottom: 0.8rem;
+  background: #f8f8f8;
+  width: 33.3%;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+.hot{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2.03rem;
+  width: 2.03rem;
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: .7rem;
+  color: #ffffff;
+  font-weight: 800;
+  background:url('https://image.guazistatic.com/gz01181105/16/19/4b25775c32ea9b5eb5d650405a12265c.png') no-repeat;
+  background-position: 0 0;
+  background-size: 2.03rem 2.03rem;
+  z-index: 10;
+}
+.item-box{
+margin-top: 1.3333rem;
+width: 5.86666rem;
+height: 3.33333rem;
+position: relative;
+}
+.item-box image{
+  width: 100%;
+  height: 100%;
+}
+/* 蒙层 用来把图片本身的背景颜色盖住 */
+.mengceng-activity{
+  background: rgba(63,67,89,.04);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+/* 首付 */
+.down-pay{
+  font-weight: 700;
+  margin-top: 0.18666rem;
+  font-size: 0.74666rem;
+  line-height: 1.066rem;
+  color: #ff7414;
+  text-align: center;
+  align-items: center;
+}
+/* 月供 */
+.month{
+  width: 100%;
+  height: 0.88rem;
+}
+.month_pay{
+  display: inline-block;
+  font-size: 0.64rem;
+  color: #666666;
+  line-height: 0.88rem;
+  margin-right: 0.16rem;
+}
+.chexi{
+  display: inline-block;
+  margin-top: 0.266rem;
+  font-size: 0.64rem;
+  color: #999999;
+  line-height: 0.88rem;
+  overflow: hidden;
+}

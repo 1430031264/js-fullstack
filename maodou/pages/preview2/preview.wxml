@@ -1,0 +1,16 @@
+<view class='index_top'>
+  <view class='swiper_box'>
+    <swiper class='swipers' autoplay="true" current="{{currentSwiper}}" bindchange="swiperChange">
+      <block wx:for="{{advimg}}" wx:key="index">
+        <swiper-item>
+          <image class="swiper_image" src="{{item.url}}" lazy-load="true" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="dots">
+      <block wx:for="{{advimg}}" wx:key>
+        <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+</view>

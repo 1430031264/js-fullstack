@@ -1,0 +1,63 @@
+/* pages/mine/mine.wxss */
+page{
+  background-color: #efefef;
+  height: 100%;
+}
+image{
+  width: 55rpx;
+  height: 55rpx;
+}
+p{
+  font-size: 16px;
+  display: block;
+}
+.item{
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  width: 25%;
+  padding: 25rpx;
+  margin-top: 8rpx;
+  margin-bottom: 12rpx;
+  box-sizing: border-box;
+}
+.bgc{
+  background-color: #fff;
+  padding: 16rpx;
+}
+.fz{
+  font-size: 10px;
+}
+
+
+.login{
+  position: relative;
+  width: 100%;
+  padding-left:32rpx;
+  padding-right:32rpx;
+  display: flex;
+  display: inline-block;
+  box-align: center;
+  align-items: center;
+}
+#icon{
+  width: 120rpx;
+  height: 120rpx;  
+}
+.login-btn{
+  position: absolute;
+  left: 20%;
+  top: 15%;
+}
+.login-btn-1{
+  font-size: 15px;
+}
+.login-btn-2{
+  font-size: 12px;
+  color: #cccccc
+}
+.middle{
+  margin-top: 8rpx;
+  margin-bottom: 8rpx;
+  padding-top: 16rpx;
+}
