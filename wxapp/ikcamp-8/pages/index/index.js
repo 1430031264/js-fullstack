@@ -56,7 +56,7 @@ Page({
   showDetail(e) {
     // contentId
     // 标记为已经阅读过的
-    console.log(e)
+    // console.log(e)
     let contentId = e.currentTarget.dataset.id
     // console.log(contentId)
     let visitedID = wx.getStorageSync('visitedID') || []
