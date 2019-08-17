@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- e.target 目标是点击了谁，谁就是这个target
+  e.currentTarget 谁绑定了点击事件，谁就是currentTarget -->
+  <div id="box1">
+    1
+    <div id="box2">
+      2
+    </div>
+  </div>
+  <script>
+    const box1 = document.getElementById('box1')
+    const box2 = document.getElementById('box2')
+    box1.addEventListener('click', function(e) {
+      console.log(e.target,'+++++++++++++',e.currentTarget)
+    })
+  </script>
+</body>
+</html>
