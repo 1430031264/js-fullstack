@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // json 数组格式------------------
+    let json =  {
+      '0': '张三',
+      '1': '李四',
+      '2': '王五',
+      '3': '赵六',
+      length: 4
+    }
+
+    // json 数组格式转换为数组--------------
+    let arr = Array.from(json)
+    console.log(arr)
+
+    // Array.of() 方法 传入 3,4,5,6 能变成数组
+    console.log(Array.of(3,4,5,6))
+    console.log(Array.of('a','b','c','d'))
+
+    // find() 实例方法 
+    // value 表示当前查找的值，index为索引，几个值，arr 传入的参数
+    let demo = [1,2,3,4,5,6,7,8,9]
+    let demo2 = ["张三", "李四", "王五", "赵六"]
+    let find = demo.find((value,index,arr) => value > 5)
+    let find2 = demo2.find((value) => value == '赵六')
+    console.log(find)
+    console.log(find2)
+
+    // 数组循环-----------------------------
+    // for( let i of demo2) {
+    //   console.log('循环值',i)
+    // }
+    // for(let i of demo2.keys()) {
+    //   console.log('循环下标',i)
+    // }
+    // for(let [index,val] of demo2.entries()) {
+    //   console.log('循环下标 + 值', index+ ':' + val)
+    // }
+  </script>
+</body>
+</html>

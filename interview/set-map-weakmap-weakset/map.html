@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p id="p1">s</p>
+  <p id="p2">s</p>
+  <!-- <script>
+    const p1 = document.getElementById('p1')
+    const p2 = document.getElementById('p2')
+    var s = Symbol() // 防止命名冲突 新增的基础数据类型，也能作为对象的属性
+    // 对象的属性一般用字符串做 key
+    // var map = {
+    //   a: 1,b: 2, [s]:'symbol',[p1]: 'p1', [p2]: 'p2', '3': 3
+    // } 
+    var map = {
+      a: 1, b: 2, '3': 3
+    } 
+    console.log(Object.prototype.toString.call(p1))
+    console.log(Object.values(map))
+
+    var es6Map = new Map()
+    es6Map.set('a',1)
+    // es6Map.set(p1,'p1')
+    // es6Map.set(p2,'p2')
+    es6Map.set('b',2)
+    es6Map.set('3',3)
+    console.log(es6Map)
+  </script> -->
+  
+  <!-- 优化if else -->
+  <!-- <script>
+    
+    var furMap = {
+      a: [flagA,flagB],
+      b: flagB,
+      default: flagC
+    }
+    function flagA(){
+      console.log('a')
+    }
+    function flagB(){
+      console.log('b')
+    }
+    function flagC(){
+      console.log('c')
+    }
+    function status(flag) {
+      // 一般的IF else 判断
+      // if (flag === 'a') {
+      //   flagA()
+      // } else if(flag === 'b') {
+      //   flagB()
+      // } else {
+      //   flagC()
+      // }
+      let doSomring = furMap[flag]  || furMap.default 
+      if(Array.isArray(doSomring)) {
+        doSomring.forEach(fun => fun())
+      } else {
+        doSomring()
+      }
+      
+    }
+    status('a')
+  </script> -->
+
+  <script>
+    var es6Map = new Map()
+    es6Map.set('a',1)
+    // es6Map.set(p1,'p1')
+    // es6Map.set(p2,'p2')
+    es6Map.set('b',2)
+    es6Map.set('3',3)
+    console.log(es6Map)
+    // for of 遍历的是可迭代对象 
+    for( let k of es6Map.keys()) {
+      console.log('key',k)
+    }
+
+    var s = new Set([1,1,2,3,4,2,2]);
+    for (let val of s) {
+      console.log(val)
+    }
+  </script>
+</body>
+</html>
