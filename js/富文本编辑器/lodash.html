@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"></script>
+  <script>
+    var arr = [
+      {name: '李华', age: 18},
+      {name: '李雷', age: 18},
+      {name: '韩梅梅', age: 17},
+    ]
+    var res = _.groupBy(arr,'age')
+    // res 是一个对象 里面有两个属性 
+    // { 
+    //   17: [
+    //     {}
+    //   ],
+    //   18: [
+    //     {},
+    //     {}
+    //   ]
+    // }
+    console.log(res)
+    var arr1 = [9.0,6.0,3.0,5,8.8,8.1]
+    var res1 = _.groupBy(arr1, Math.floor)
+    console.log(res1)
+    /// _.groupBy() 第二个参数是一个值，就取出那条数据，如果是一个方法，就吧值放入这个方法里面执行
+    
+    // 手写一个 _.groupBy
+    function myGroupBy(array,arg) {
+      var obj = {}
+      for(let i = 0; i < array.length; i++) {
+        let item = array[i];
+        // arg string
+        let res
+        if(typeof(arg) === 'string') {
+          res = item[arg]
+        } else {
+          res = arg(item)
+        }
+        if(obj[res] === undefined) {
+          obj[res] = []
+        }
+        obj[res].push(item);
+      }
+      return obj
+    }
+    console.log(myGroupBy(arr,'age'))
+  </script>
+</body>
+</html>

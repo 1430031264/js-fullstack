@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #opt{
+      width: 400px;
+      margin: 0 auto;
+      display: flex;
+    }
+    button{
+      flex: 1
+    }
+    #richEdit{
+      width: 400px;
+      margin: 0 auto;
+      height: 600px;
+      border: 1px solid pink;
+      outline: none
+    }
+    #richEdit ol{
+      margin-left: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="opt">
+    <button id="bold">加粗</button>
+    <button id="insertImg">插入图片</button>
+    <button id="xie">斜体</button>
+    <button id="fs18">字号18</button>
+    <button id="ol">ol</button>
+    <button id="submit">提交</button>
+  </div>
+  <div id="richEdit" contenteditable="true">内容</div>
+  <script>
+    const bold = document.getElementById('bold')
+    bold.addEventListener('click',function() {
+      document.execCommand('bold',false,null)
+    })
+
+    document.getElementById('submit')
+    .addEventListener('click', function() {
+      console.log(
+        document.getElementById('richEdit').innerHTML
+      )
+    })
+
+    document.getElementById('insertImg')
+    .addEventListener('click', function() {
+      document.execCommand('insertImage',false,'https://static.segmentfault.com/v-5d2ffc9a/global/img/logo-b.svg')
+    })
+
+    document.getElementById('fs18')
+    .addEventListener('click', function() {
+      document.execCommand('fontSize',false,18)
+    })
+
+    document.getElementById('ol')
+    .addEventListener('click', function() {
+      document.execCommand('insertOrderedList',false,null)
+    })
+  </script>
+</body>
+</html>
