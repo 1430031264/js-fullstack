@@ -1,0 +1,19 @@
+{
+  "name": "koa",
+  "version": "1.0.0",
+  "description": "- sql\r   create insert delete update \r   select * from t-user where is_delete=1; // 作用于所有数据\r   select * from t-user where id=123 // 作用于 123 那条数据\r   索引作用：更快的找到需要的数据，精准查询到，不用作用于所有数据\r   primary key 主键 auto-increment\r   unique key 唯一索引 防止重复\r   数据类型 \r     int(11)\r     varchar(20)\r     tinyint(1)\r     datetime\r   存储类型 innoDB  memory(投票、竞价这种不用长期存储或者需要经过一定过程的数据)",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "koa": "^2.8.1",
+    "koa-route": "^3.2.0",
+    "koa-static": "^5.0.0",
+    "path": "^0.12.7"
+  }
+}
