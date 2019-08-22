@@ -1,0 +1,19 @@
+<script>
+    const originalPush = Array.prototype.push
+    Array.prototype.push = function() {
+      console.log('数组改变了');
+      originalPush.apply(this,arguments)
+    }
+    const arr = [];
+    arr.push(1);
+
+    let wear = function() {
+      console.log('穿上第一件衣服');
+    }
+    const originalWear = wear;
+    let wear1 = function() {
+      originalWear();
+      console.log('穿上第二件衣服')
+    }
+    wear1()
+  </script>

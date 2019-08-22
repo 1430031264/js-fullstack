@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // 先判断一下都早函数的返回值是不是一个对象，是则返回，不过不是返回组件新建的那个对象
+    function Test() {
+      this.a = 1;
+      return {b: 2}
+    }
+    var test = new Test()
+    // console.log(test)
+
+    // 返回 instance
+    var  instance
+    function Model() {
+      if(!instance){
+        instance = this
+      }
+      return instance
+        // return 
+    }
+    Model.prototype.openModel = function() {
+      alert(c)
+    }
+
+    var a = new Model()
+    // new 的流程 定义一个对象，绑定方法，绑定this
+    var b = new Model()
+    // a b 这两个是不相等的，单例模式的目的就是为了让这两相等
+    // 都指向一个对象，节约内存
+    console.log(a === b)
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "design-model",
+  "version": "1.0.0",
+  "description": "1. 发布订阅\r     event-bus\r     // 订阅者\r     event.on('click')\r     event.on('receliveData')\r     // 发布者\r     event.emit('click')",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/preset-env": "^7.5.5"
+  }
+}
