@@ -38,14 +38,14 @@
 //   console.log(newa)
 // }
 
-
+// ------字符串转换成数组-------
 // let str = 'abc'
 // // ['a','b','c']
 // let newArray = Array.from(arrLike)
 // let newArray2 = Array.from(arrLike, (v) => v + '1')
 // let newArray3 = Array.from(str)
 
-// --------- join      sort----------
+// --------- join(数组赚字符串) sort(数组排序)----------
 // let Arr = [2,3,4,5,6,1]
 // // 1|2|3|4|5|6
 // let test =  Arr.join('|')
@@ -60,8 +60,8 @@
 // let test = arr.splice(0,2,7) //[ 7, 4, 6, 1, 9 ]
 // console.log(arr)
 
-
-var arr = [1,2,3,4,5]
+// -----------------------------------------------------------
+// var arr = [1,2,3,4,5]
 // copyWithin()第一个参数 从哪开始替换，第二个从哪里开始复制，第三个复制几个
 // arr.copyWithin(0,3) // [ 4, 5, 3, 4, 5 ]
 // console.log(arr)
@@ -73,4 +73,11 @@ var arr = [1,2,3,4,5]
 // arr.indexOf(2) // 1
 // 从后往前数
 // arr.lastIndexOf(2) // 1
-arr.find((v) => v < 3)
+// arr.find((v) => v < 3)
+
+// ------------数组的遍历-------------
+let arr = [7,8,9,5]
+// arr.forEach((val,index) => console.log(index,val))
+// arr.filter(x => console.log(x))
+// arr.some(x => console.log(x))
+// console.log(arr.map(x => x))
