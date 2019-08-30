@@ -1,16 +1,19 @@
 <template>
   <section class="list-block">
     <div class="info" @click="$emit('more')">
-      <h1 class="title">{{ title }}</h1>
+      <h1 class="title">{{title}}</h1>
       <i class="iconfont icon-right"></i>
     </div>
     <div v-if="movies.length" class="list">
-      <div class="item" v-for="item in movies" :key="item._id" @click="$emit('select',item._id)">
+      <div 
+      class="item" 
+      v-for="item in movies" 
+      :key="item._id"
+      @click="$emit('select',item._id)"
+      >
         <div class="image">
-          <img v-lazy="item.poster" style="width:100%; height:100%" >
-          <em v-if="item.isPlay === 1" class="rate">
-            {{item.rate}}
-          </em>
+          <img v-lazy="item.poster" alt="" style="width:100%;height:100%">
+          <em v-if="item.isPlay === 1" class="rate">{{item.rate}}</em>
         </div>
         <p class="title">{{item.title}}</p>
       </div>
@@ -20,25 +23,25 @@
     </div>
   </section>
 </template>
+
 <script>
 export default {
-  name: 'ListBlock',
+  name: 'listBlock',
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
+      default: '即将上映'
     },
     movies: {
       type: Array,
-      required: true
+      required: true,
+      default: () => []
     }
-  },
-  data() {
-    return {
-    }
- },
+  }
 }
 </script>
+
 <style lang="stylus" scoped>
 .list-block
   padding 15px
@@ -79,3 +82,4 @@ export default {
     align-items center
     height 200px
 </style>
+

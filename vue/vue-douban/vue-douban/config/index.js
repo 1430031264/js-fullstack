@@ -10,12 +10,12 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {//webpack代理
-      '/api':{
-        target:'http://47.110.74.37:4000',//后端接口地址    修改配置文件后要重新启动项目
-        changeOrigin:true, //允许跨域
-        pathRewrite:{
-          '^/api':'/' //重写 
+    proxyTable: {
+      '/api': {
+        target: 'http://47.110.74.37:4000',//后端接口
+        changeOrigin: true,//是否允许跨域
+        pathRewrite: {
+          '^/api': '/'//重写
         }
       }
     },

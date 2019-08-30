@@ -1,162 +1,156 @@
 <template>
   <transition name="fade">
     <div class="movie">
-          <!-- @touchmove.prevent 阻止点击事件 -->
-        <div class="player-wrapper" @touchmove.prevent>
-          <!-- <div ref="player" class="player" /> -->
-          <video class="player" :src="movie.video"></video>
-          <i class="iconfont icon-left" @click="$router.back()"/>
-        </div>  
-        <div class="info-wrapper">
-          <ScrollView :data="relativeMovies">
-            <section v-if="movie.title" class="info" >
-              <div class="title">{{ movie.title }}</div>
-              <div class="descript">{{ desc }}</div>
-              <div class="switch-wrapper" @click="toggleLayer">
-                <span>简介</span>
-                <i class="iconfont icon-right"/>
-              </div>
-            </section>
-            <div class="space" style="background-color: #f6f6f6; height: 10px"></div>
-            <section v-if="relativeMovies" class="relative-movies">
-              <h1 class="text">相关推荐</h1>
-              <div class="list">
-                <div
-                  v-for="item in relativeMovies"
-                  :key="item._id"
-                  class="item"
-                  @click="goToDetail(item._id)"
-                >
-                  <img v-lazy="item.poster" width="56" height="80">
-                  <div class="desc">
-                    <p class="title">{{ item.title }}</p>
-                    <div v-if="item.isPlay === 1" class="rate">
-                      <span>豆瓣评分: </span>
-                      <span class="text">{{ item.rate || '暂无' }}</span>
-                    </div>
-                    <p v-else class="pubdate">
-                      <span>上映时间: </span>
-                      <span>{{ item.pubdate.replace('(中国大陆)', '') }}</span>
-                    </p>
-                    <p>类型: {{ item.movieTypes.join('/') }}</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <div class="loadng-wrap" v-if="!relativeMovies">
-              <Loading />
+      <div class="player-wrapper" @touchmove.prevent>
+        <!-- <div ref="player" class="player" /> -->
+        <video class="player" :src="movie.video" />
+        <i class="iconfont icon-left" @click="$router.back()" />
+      </div>
+      <div class="info-wrapper">
+        <ScrollView :data="relativeMovies">
+          <section v-if="movie.title" class="info">
+            <div class="title">{{ movie.title }}</div>
+            <div class="descript">{{ desc }}</div>
+            <div class="switch-wrapper" @click="toggleLayer">
+              <span>简介</span>
+              <i class="iconfont icon-right" />
             </div>
-          </ScrollView>
-          <Transition name="layer">
-            <div v-show="isShow" class="layer-wrapper">
-              <div class="title" @click="toggleLayer">
-                <span class="text">{{ movie.title }}</span>
-                <i class="iconfont icon-down"/>
-              </div>
-              <div v-if="movie.title" class="desc">
-                <div class="descript">
-                  <div v-if="movie.rate !== 0" class="star item">
-                    <span class="name">评分: </span>
-                    <span class="text">{{ movie.rate }}</span>
+          </section>
+          <div class="space" style="background-color: #f6f6f6; height: 10px"></div>
+          <section v-if="relativeMovies" class="relative-movies">
+            <h1 class="text">相关推荐</h1>
+            <div class="list">
+              <div
+                v-for="item in relativeMovies"
+                :key="item._id"
+                class="item"
+                @click="goToDetail(item._id)"
+              >
+                <img v-lazy="item.poster" width="56" height="80">
+                <div class="desc">
+                  <p class="title">{{ item.title }}</p>
+                  <div v-if="item.isPlay === 1" class="rate">
+                    <span>豆瓣评分: </span>
+                    <span class="text">{{ item.rate || '暂无' }}</span>
                   </div>
-                  <div v-else class="pubdate item">
-                    <span class="name">上映时间: </span>
-                    <span class="text">{{ pubdate }}</span>
-                  </div>
-                  <div class="author item">
-                    <span class="name">导演: </span>
-                    <span class="text">{{ movie.author }}</span>
-                  </div>
-                  <div class="cast item">
-                    <span class="name">影人: </span>
-                    <span class="text">{{ casts }}</span>
-                  </div>
-                  <div class="category item">
-                    <span class="name">类型: </span>
-                    <span class="text">{{ movie.movieTypes.join('·') }}</span>
-                  </div>
-                </div>
-                <div class="casts">
-                  <div v-for="item in movie.casts" :key="item._id" class="cast">
-                    <img v-lazy="item.avatar" class="img">
-                    <h3 class="name">{{ item.name }}</h3>
-                  </div>
-                </div>
-                <div class="summary">
-                  <h1 class="title">简介</h1>
-                  <span class="text">{{ movie.summary }}</span>
+                  <p v-else class="pubdate">
+                    <span>上映时间: </span>
+                    <span>{{ item.pubdate.replace('(中国大陆)', '') }}</span>
+                  </p>
+                  <p>类型: {{ item.movieTypes.join('/') }}</p>
                 </div>
               </div>
             </div>
-          </Transition>
-        </div>
+          </section>
+          <div class="loading-wrap" v-if="!relativeMovies">
+            <Loading />
+          </div>
+        </ScrollView>
+        <Transition name="layer">
+          <div v-show="isShow" class="layer-wrapper">
+            <div class="title" @click="toggleLayer">
+              <span class="text">{{ movie.title }}</span>
+              <i class="iconfont icon-down" />
+            </div>
+            <div v-if="movie.title" class="desc">
+              <div class="descript">
+                <div v-if="movie.rate !== 0" class="star item">
+                  <span class="name">评分: </span>
+                  <span class="text">{{ movie.rate }}</span>
+                </div>
+                <div v-else class="pubdate item">
+                  <span class="name">上映时间: </span>
+                  <span class="text">{{ pubdate }}</span>
+                </div>
+                <div class="author item">
+                  <span class="name">导演: </span>
+                  <span class="text">{{ movie.author }}</span>
+                </div>
+                <div class="cast item">
+                  <span class="name">影人: </span>
+                  <span class="text">{{ casts }}</span>
+                </div>
+                <div class="category item">
+                  <span class="name">类型: </span>
+                  <span class="text">{{ movie.movieTypes.join('·') }}</span>
+                </div>
+              </div>
+              <div class="casts">
+                <div v-for="item in movie.casts" :key="item._id" class="cast">
+                  <img v-lazy="item.avatar" class="img">
+                  <h3 class="name">{{ item.name }}</h3>
+                </div>
+              </div>
+              <div class="summary">
+                <h1 class="title">简介</h1>
+                <span class="text">{{ movie.summary }}</span>
+              </div>
+            </div>
+          </div>
+        </Transition>
+
+      </div>
     </div>
-    
   </transition>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-  name:'Movie',
-  data () {
+  name: "Movie",
+  data() {
     return {
-      isShow: false,
       movie: {},
       relativeMovies: [],
-      // desc: ''
-    }
+      isShow: false
+    };
   },
   beforeRouteUpdate(to,from,next) {
     next()
     this.getDetail()
-    
-  },
-  methods: {
-    //拿到电影的id去请求数据
-    getDetail () {
-      const { id } = this.$route.params
-      // console.log('this.route',this.$route);
-      axios.get(`/api/api/movie/get_detail/${id}`).then(res => {
-        console.log(res);
-        if(res.data.code === 1001) {
-          this.movie = res.data.result.movie
-          this.relativeMovies = res.data.result.relativeMovies
-          // this.initPlayer()
-        }
-      });
-    },
-    toggleLayer () {
-      this.isShow = !this.isShow
-    },
-    initPlayer() {
-      const { DPlayer } = window
-      this.player = new DPlayer({
-        container: this.$refs.player,
-        video: {
-          url: this.movie.video,
-          pic: this.movie.cover
-        }
-      })
-    }
-  },
-  computed: {
-    desc() {
-      // let movie = this.movie
-      // return `${movie.rate}分 · ${movie.movieTypes.join('/')} · ${movie.duration}`
-      const duration = this.movie.duration || this.movie.pubdate.replace('(中国大陆)','')
-      const rate = this.movie.rate ? `${this.movie.rate}分`: '即将上映'
-      return `${rate} · ${this.movie.movieTypes.join('/')} · ${duration}`
-    },
-    casts () {
-      const casts = this.movie.casts
-      return casts.map(it => it.name).join('/')
-    }
   },
   created() {
     this.getDetail()
   },
-}
+  computed: {
+    desc() {
+      const rate = this.movie.rate ? `${this.movie.rate}分` : '即将上映'
+      const duration = this.movie.duration || this.movie.pubdate.replace('(中国大陆)','')
+      return `${rate} · ${this.movie.movieTypes.join('/')} · ${duration}`
+    },
+    casts() {
+      const casts = this.movie.casts
+      return casts.map(item => item.name).join('/')
+    }
+  },
+  methods: {
+    // 拿到电影的id去请求数据
+    getDetail() {
+      const { id } = this.$route.params;
+      axios.get(`/api/api/movie/get_detail/${id}`).then(res => {
+        console.log(res);
+        if (res.data.code === 1001) {
+          this.movie = res.data.result.movie;
+          this.relativeMovies = res.data.result.relativeMovies;
+          // this.initPlayer()
+        }
+      });
+    },
+    toggleLayer() {
+      this.isShow = !this.isShow
+    },
+    // initPlayer() {
+    //   const {DPlayer} = window
+    //   this.player = new DPlayer({
+    //     container: this.$refs.player,
+    //     video: {
+    //       url: this.movie.video,
+    //       pic: this.movie.cover
+    //     }
+    //   })
+    // }
+  }
+};
 </script>
 
 <style lang="stylus" scoped>
@@ -172,6 +166,7 @@ export default {
   .player-wrapper
     height 210px
     .player
+      width 100%
       height 210px
     .icon-left
       position absolute

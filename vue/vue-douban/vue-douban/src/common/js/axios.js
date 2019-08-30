@@ -1,11 +1,10 @@
-
 import axios from 'axios'
 import router from '@/router'
 import Cookie from 'js-cookie'
 
 const instance = axios.create({
   timeout: 60000,
-  // baseURL: 'https://www.easy-mock.com/mock/5d51253b75c1d55dd9aeca58/vue-douban'
+  // baseURL: 'https://www.easy-mock.com/mock/5ca45824c4e9a575b66b62d2/example'
 })
 const COOKIE_NAME = 'movie_trailer_user'
 

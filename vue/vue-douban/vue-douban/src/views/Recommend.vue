@@ -11,7 +11,7 @@
 
 <script>
 import axios from 'axios'
-import ListBlock from '@/components/ListBlock/ListBlock'
+import ListBlock from '@/components/ListBlock'
 export default {
   data() {
     return {
@@ -30,7 +30,7 @@ export default {
   methods: {
     getMovie() {
       axios.get('/api/api/movie/get_hot').then(res => {
-        console.log(res)
+        // console.log(res)
         if (res.data.code === 1001) {
           const {comming,playing} = res.data.result
           this.playingMovies = playing.movies
@@ -44,7 +44,7 @@ export default {
       console.log(type)
     },
     selectItem(id) {
-      console.log(id)
+      // console.log(id)
       this.$router.push(`/movie/${id}`)
     }
   },
